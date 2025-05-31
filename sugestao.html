@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sugerir um Filme</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Sugerir um Filme ou Série</h1>
+    <button onclick="history.back()" class="menu-button">🔙 Voltar</button>
+  </header>
+
+  <main>
+    <section style="text-align:center; padding: 20px;">
+      <p>Envie sua sugestão de filme ou série. Nós vamos analisar com carinho!</p>
+      
+      <form action="https://formsubmit.co/SEUEMAIL@email.com" method="POST" style="max-width: 500px; margin: auto;">
+        <!-- Proteção contra SPAM -->
+        <input type="hidden" name="_captcha" value="false">
+        <!-- Redireciona após o envio -->
+        <input type="hidden" name="_next" value="https://uni-lux.github.io/Universo-doug/agradecimento.html">
+
+        <div style="margin-bottom: 15px;">
+          <input type="text" name="nome" placeholder="Seu nome" required style="width: 100%; padding: 10px;">
+        </div>
+        <div style="margin-bottom: 15px;">
+          <input type="email" name="email" placeholder="Seu e-mail" required style="width: 100%; padding: 10px;">
+        </div>
+        <div style="margin-bottom: 15px;">
+          <textarea name="mensagem" placeholder="Digite sua sugestão" rows="5" required style="width: 100%; padding: 10px;"></textarea>
+        </div>
+        <button type="submit" style="padding: 10px 20px; background: #00adee; color: white; border: none; border-radius: 5px;">Enviar Sugestão</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - Todos os direitos reservados</p>
+  </footer>
+</body>
+</html>
