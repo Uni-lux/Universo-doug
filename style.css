@@ -1,3 +1,4 @@
+/* === 🔤 Fonte e Cor Base === */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -5,6 +6,7 @@ body {
     color: #fff;
 }
 
+/* === 🎬 Cabeçalho === */
 header {
     background-color: #222;
     padding: 20px;
@@ -15,33 +17,151 @@ header h1 {
     margin: 0;
 }
 
-nav {
+/* === 🔝 Menu Principal === */
+nav.top-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
     margin-top: 10px;
 }
 
-nav a {
+nav.top-menu a {
     color: #00adee;
     text-decoration: none;
-    margin: 0 10px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background 0.3s;
 }
 
-main {
-    padding: 20px;
+nav.top-menu a:hover {
+    background-color: #00adee;
+    color: #111;
 }
 
-.filme {
-    margin-bottom: 30px;
-    background: #1c1c1c;
-    padding: 15px;
-    border-radius: 10px;
-}
-
-iframe {
-    width: 100%;
-    height: 315px;
+/* === ☰ Botão Menu Lateral === */
+.menu-button {
+    background-color: #444;
+    color: white;
+    padding: 8px 12px;
     border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 10px;
 }
 
+/* === 🔍 Barra de Pesquisa === */
+.search-box {
+    text-align: center;
+    margin: 20px;
+}
+
+.search-box input {
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background-color: #222;
+    color: #fff;
+}
+
+/* === 🧭 Menu Lateral (Sidebar) === */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #111;
+    color: white;
+    transition: left 0.3s ease;
+    padding-top: 60px;
+    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    color: #00adee;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    transition: background 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #222;
+}
+
+/* ✖ Botão de Fechar Sidebar */
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    color: white;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* === 🎞️ Área principal === */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* === 🎬 Card de Filme === */
+.filme, .card {
+    background-color: #1c1c1c;
+    border: 1px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    width: 300px;
+    text-align: center;
+    color: #fff;
+    transition: transform 0.2s;
+}
+
+.filme:hover, .card:hover {
+    transform: scale(1.03);
+}
+
+.filme h2, .card h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.filme iframe, .card iframe {
+    width: 100%;
+    height: 170px;
+    border: none;
+    border-radius: 6px;
+}
+
+/* === ⚓ Rodapé === */
 footer {
     text-align: center;
     background-color: #222;
@@ -54,38 +174,29 @@ footer a {
     text-decoration: none;
     margin: 0 5px;
 }
-main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-    gap: 20px;
+
+/* === 📱 Responsividade === */
+@media (max-width: 768px) {
+    nav.top-menu {
+        display: none; /* Oculta menu do topo no mobile */
+    }
+
+    .menu-button {
+        display: block;
+        margin: 10px auto;
+    }
+
+    .filme, .card {
+        width: 90%;
+    }
+
+    .search-box input {
+        width: 95%;
+    }
 }
 
-.filme {
-    background-color: #1c1c1c;
-    border: 1px solid #333;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    padding: 15px;
-    width: 300px;
-    text-align: center;
-    color: #fff;
-    transition: transform 0.2s;
-}
-
-.filme:hover {
-    transform: scale(1.03);
-}
-
-.filme h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.filme iframe {
-    width: 100%;
-    height: 170px;
-    border: none;
-    border-radius: 6px;
+@media (min-width: 769px) {
+    .menu-button {
+        display: none; /* Oculta botão em telas grandes */
+    }
 }
