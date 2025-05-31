@@ -2,66 +2,44 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Filmes & Séries Online</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sobre - Filmes & Séries</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>Filmes & Séries</h1>
-
-    <!-- ☰ Botão do menu lateral -->
-    <button id="menuToggle" class="menu-button">☰</button>
-
-    <!-- 🔲 Menu Topo -->
+    <h1>Sobre o Site</h1>
     <nav class="top-menu">
-      <a href="inicio.html">Início</a>
+      <a href="index.html">Início</a>
       <a href="filmes.html">Filmes</a>
       <a href="series.html">Séries</a>
-      <a href="contato.html">Contato</a>
     </nav>
-
-    <!-- 🔍 Barra de Pesquisa -->
-    <div class="search-box">
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Pesquisar filmes ou séries..."
-      />
-    </div>
   </header>
 
-  <!-- 🧭 Menu Lateral -->
-  <aside id="sidebar" class="sidebar">
-    <button id="closeSidebar" class="close-button">✖</button>
-    <ul>
-      <li><a href="lançamentos.html">Lançamentos</a></li>
-      <li><a href="categorias.html">Categorias</a></li>
-      <li><a href="favoritos.html">Minha Lista</a></li>
-      <li><a href="novidades.html">Novidades</a></li>
-      <li><a href="sugestao.html">Sugira um Filme</a></li> <!-- Novo botão -->
-      <li><a href="faq.html">FAQ</a></li> <!-- Novo botão -->
-      <li><a href="sobre.html">Sobre</a></li>
-      <li><a href="ajuda.html">Ajuda</a></li>
-      <li><a href="login.html">Entrar</a></li>
-    </ul>
-  </aside>
-
   <main>
-    <section class="card">
-      <h2>Nome do Filme 1</h2>
-      <iframe
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-        allowfullscreen
-      ></iframe>
-    </section>
+    <section class="content">
+      <h2>Quem Somos</h2>
+      <p>
+        O <strong>Filmes & Séries Online</strong> é uma plataforma gratuita criada com o objetivo de facilitar o acesso a conteúdos audiovisuais de forma simples, rápida e segura.
+      </p>
 
-    <section class="card">
-      <h2>Nome do Filme 2</h2>
-      <iframe
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-        allowfullscreen
-      ></iframe>
+      <h2>O que oferecemos</h2>
+      <p>
+        - Uma coleção de filmes e séries online<br>
+        - Lançamentos atualizados<br>
+        - Recursos como busca por nome, categorias e favoritos<br>
+        - Navegação rápida e design responsivo
+      </p>
+
+      <h2>Nossa Missão</h2>
+      <p>
+        Proporcionar entretenimento gratuito e acessível a todos os usuários, sempre respeitando os direitos autorais e incentivando a cultura audiovisual.
+      </p>
+
+      <h2>Contato</h2>
+      <p>
+        Se você tiver dúvidas, sugestões ou quiser relatar algum problema, acesse a <a href="contato.html">página de contato</a>.
+      </p>
     </section>
   </main>
 
@@ -70,31 +48,5 @@
     <a href="privacidade.html">Política de Privacidade</a> |
     <a href="termos.html">Termos de Uso</a>
   </footer>
-
-  <!-- 🔧 Script -->
-  <script>
-    const menuToggle = document.getElementById("menuToggle");
-    const sidebar = document.getElementById("sidebar");
-    const closeSidebar = document.getElementById("closeSidebar");
-
-    menuToggle.addEventListener("click", () => {
-      sidebar.style.left = "0";
-    });
-
-    closeSidebar.addEventListener("click", () => {
-      sidebar.style.left = "-250px";
-    });
-
-    const searchInput = document.getElementById("searchInput");
-    searchInput.addEventListener("keyup", function () {
-      const searchTerm = searchInput.value.toLowerCase();
-      const cards = document.querySelectorAll(".card");
-
-      cards.forEach((card) => {
-        const title = card.querySelector("h2").textContent.toLowerCase();
-        card.style.display = title.includes(searchTerm) ? "block" : "none";
-      });
-    });
-  </script>
 </body>
 </html>
