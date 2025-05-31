@@ -15,15 +15,21 @@
             <a href="serie.html">Séries</a>
             <a href="contato.html">Contato</a>
         </nav>
+
+        <!-- 🔍 Barra de Pesquisa -->
+        <div style="text-align: center; margin: 20px;">
+            <input type="text" id="searchInput" placeholder="Pesquisar filmes ou séries..." style="padding: 10px; width: 80%; max-width: 400px; border-radius: 8px;">
+        </div>
     </header>
 
     <main>
-        <section class="filme">
+        <!-- 🎬 Cards de filmes com classe 'card' -->
+        <section class="card">
             <h2>Nome do Filme 1</h2>
             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
         </section>
 
-        <section class="filme">
+        <section class="card">
             <h2>Nome do Filme 2</h2>
             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
         </section>
@@ -33,5 +39,20 @@
         <p>&copy; 2025 - Todos os direitos reservados</p>
         <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a>
     </footer>
+
+    <!-- 📜 Script de Pesquisa -->
+    <script>
+        const searchInput = document.getElementById('searchInput');
+
+        searchInput.addEventListener('keyup', function () {
+            const searchTerm = searchInput.value.toLowerCase();
+            const cards = document.querySelectorAll('.card');
+
+            cards.forEach(card => {
+                const title = card.querySelector('h2').textContent.toLowerCase();
+                card.style.display = title.includes(searchTerm) ? 'block' : 'none';
+            });
+        });
+    </script>
 </body>
 </html>
