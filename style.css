@@ -48,7 +48,6 @@ nav.top-menu a {
 
 /* === Botão de menu lateral ☰ === */
 .menu-button {
-  display: none;
   font-size: 28px;
   background: none;
   border: none;
@@ -163,14 +162,6 @@ footer a {
 
 /* === 📱 Responsividade === */
 @media (max-width: 768px) {
-  nav.top-menu {
-    display: none; /* Oculta menu topo em telas pequenas */
-  }
-
-  .menu-button {
-    display: block;
-  }
-
   .filme, .card {
     width: 90%;
   }
@@ -180,12 +171,13 @@ footer a {
   }
 }
 
+/* === 💻 Desktop: mantém menu lateral sempre visível === */
 @media (min-width: 769px) {
-  .menu-button {
-    display: none;
+  .sidebar {
+    left: 0;
   }
 
-  nav.top-menu {
-    display: flex; /* Garante que o menu apareça no desktop */
+  main {
+    margin-left: 250px;
   }
 }
