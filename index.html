@@ -1,68 +1,97 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filmes & Séries</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Filmes & Séries</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <h1>Filmes & Séries</h1>
-        <nav>
-            <ul class="menu">
-                <li><a href="inicio.html">Início</a></li>
-                <li><a href="filmes.html">Filmes</a></li>
-                <li><a href="serie.html">Séries</a></li>
-                <li><a href="lançamentos.html">Lançamentos</a></li>
-                <li><a href="categorias.html">Categorias</a></li>
-                <li><a href="favoritos.html">Minha Lista</a></li>
-                <li><a href="novidades.html">Novidades</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="ajuda.html">Ajuda</a></li>
-                <li><a href="contato.html">Contato</a></li>
-                <li><a href="login.html">Entrar</a></li>
-            </ul>
-        </nav>
+  <header>
+    <h1>Filmes & Séries</h1>
 
-        <!-- 🔍 Barra de Pesquisa -->
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Pesquisar filmes ou séries...">
-        </div>
-    </header>
+    <!-- 🔲 Menu Topo com botões principais -->
+    <nav class="top-menu">
+      <a href="inicio.html">Início</a>
+      <a href="filmes.html">Filmes</a>
+      <a href="serie.html">Séries</a>
+      <a href="contato.html">Contato</a>
+      <button id="menuToggle" class="menu-button">☰</button>
+    </nav>
 
-    <main>
-        <!-- 🎬 Cards de filmes com classe 'card' -->
-        <section class="card">
-            <h2>Nome do Filme 1</h2>
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-        </section>
+    <!-- 🔍 Barra de Pesquisa -->
+    <div class="search-box">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Pesquisar filmes ou séries..."
+      />
+    </div>
+  </header>
 
-        <section class="card">
-            <h2>Nome do Filme 2</h2>
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-        </section>
-    </main>
+  <!-- 🧭 Menu Lateral -->
+  <aside id="sidebar" class="sidebar">
+    <button id="closeSidebar" class="close-button">✖</button>
+    <ul>
+      <li><a href="lançamentos.html">Lançamentos</a></li>
+      <li><a href="categorias.html">Categorias</a></li>
+      <li><a href="favoritos.html">Minha Lista</a></li>
+      <li><a href="novidades.html">Novidades</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="ajuda.html">Ajuda</a></li>
+      <li><a href="login.html">Entrar</a></li>
+    </ul>
+  </aside>
 
-    <footer>
-        <p>&copy; 2025 - Todos os direitos reservados</p>
-        <a href="privacidade.html">Política de Privacidade</a> |
-        <a href="termos.html">Termos de Uso</a>
-    </footer>
+  <main>
+    <section class="card">
+      <h2>Nome do Filme 1</h2>
+      <iframe
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        allowfullscreen
+      ></iframe>
+    </section>
 
-    <!-- 📜 Script de Pesquisa -->
-    <script>
-        const searchInput = document.getElementById('searchInput');
+    <section class="card">
+      <h2>Nome do Filme 2</h2>
+      <iframe
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        allowfullscreen
+      ></iframe>
+    </section>
+  </main>
 
-        searchInput.addEventListener('keyup', function () {
-            const searchTerm = searchInput.value.toLowerCase();
-            const cards = document.querySelectorAll('.card');
+  <footer>
+    <p>&copy; 2025 - Todos os direitos reservados</p>
+    <a href="privacidade.html">Política de Privacidade</a> |
+    <a href="termos.html">Termos de Uso</a>
+  </footer>
 
-            cards.forEach(card => {
-                const title = card.querySelector('h2').textContent.toLowerCase();
-                card.style.display = title.includes(searchTerm) ? 'block' : 'none';
-            });
-        });
-    </script>
+  <!-- 🔧 Script para abrir/fechar menu -->
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const sidebar = document.getElementById("sidebar");
+    const closeSidebar = document.getElementById("closeSidebar");
+
+    menuToggle.addEventListener("click", () => {
+      sidebar.style.left = "0";
+    });
+
+    closeSidebar.addEventListener("click", () => {
+      sidebar.style.left = "-250px";
+    });
+
+    // Script de busca
+    const searchInput = document.getElementById("searchInput");
+    searchInput.addEventListener("keyup", function () {
+      const searchTerm = searchInput.value.toLowerCase();
+      const cards = document.querySelectorAll(".card");
+
+      cards.forEach((card) => {
+        const title = card.querySelector("h2").textContent.toLowerCase();
+        card.style.display = title.includes(searchTerm) ? "block" : "none";
+      });
+    });
+  </script>
 </body>
 </html>
