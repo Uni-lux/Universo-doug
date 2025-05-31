@@ -10,10 +10,10 @@
   <header>
     <h1>Filmes & Séries</h1>
 
-    <!-- ✅ Botão de menu lateral fora da nav -->
+    <!-- ☰ Botão do menu lateral -->
     <button id="menuToggle" class="menu-button">☰</button>
 
-    <!-- 🔲 Menu Topo com botões principais -->
+    <!-- 🔲 Menu Topo -->
     <nav class="top-menu">
       <a href="inicio.html">Início</a>
       <a href="filmes.html">Filmes</a>
@@ -69,7 +69,7 @@
     <a href="termos.html">Termos de Uso</a>
   </footer>
 
-  <!-- 🔧 Script para abrir/fechar menu -->
+  <!-- 🔧 Script -->
   <script>
     const menuToggle = document.getElementById("menuToggle");
     const sidebar = document.getElementById("sidebar");
@@ -83,7 +83,6 @@
       sidebar.style.left = "-250px";
     });
 
-    // 🔍 Script de busca
     const searchInput = document.getElementById("searchInput");
     searchInput.addEventListener("keyup", function () {
       const searchTerm = searchInput.value.toLowerCase();
