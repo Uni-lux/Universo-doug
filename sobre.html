@@ -1,15 +1,78 @@
-<main>
-  <section class="sobre-container">
-    <h2>Sobre o Site</h2>
-    <p>Bem-vindo ao Filmes & Séries! Nosso objetivo é oferecer uma plataforma gratuita, fácil de usar e com uma grande variedade de conteúdos para você assistir.</p>
-    <p>Todos os conteúdos são organizados com categorias, lançamentos e favoritos, permitindo que você aproveite o melhor do entretenimento online.</p>
-    <p>Estamos sempre atualizando com novidades, séries populares e filmes clássicos.</p>
-    <p>Obrigado por usar nossa plataforma!</p>
-  </section>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre - Filmes & Séries</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Filmes & Séries</h1>
+    <button id="menuToggle" class="menu-button">☰</button>
 
-  <div style="text-align: center; margin-top: 20px;">
-    <button onclick="history.back()" style="background:#00adee; border:none; padding:10px 20px; color:#fff; border-radius:6px; cursor:pointer;">
-      🔙 Voltar
-    </button>
-  </div>
-</main>
+    <nav class="top-menu">
+      <a href="inicio.html">Início</a>
+      <a href="filmes.html">Filmes</a>
+      <a href="series.html">Séries</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+
+    <div class="search-box">
+      <input type="text" placeholder="Pesquisar filmes ou séries..." />
+    </div>
+  </header>
+
+  <aside id="sidebar" class="sidebar">
+    <button id="closeSidebar" class="close-button">✖</button>
+    <ul>
+      <li><a href="inicio.html">Início</a></li>
+      <li><a href="sugestao.html">Sugerir um Filme</a></li>
+      <li><a href="lançamentos.html">Lançamentos</a></li>
+      <li><a href="categorias.html">Categorias</a></li>
+      <li><a href="favoritos.html">Minha Lista</a></li>
+      <li><a href="novidades.html">Novidades</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="ajuda.html">Ajuda</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="login.html">Entrar</a></li>
+    </ul>
+  </aside>
+
+  <main>
+    <section class="sobre-container">
+      <h2>Sobre o Site</h2>
+      <p>Bem-vindo ao Filmes & Séries! Nosso objetivo é oferecer uma plataforma gratuita, fácil de usar e com uma grande variedade de conteúdos para você assistir.</p>
+      <p>Todos os conteúdos são organizados com categorias, lançamentos e favoritos, permitindo que você aproveite o melhor do entretenimento online.</p>
+      <p>Estamos sempre atualizando com novidades, séries populares e filmes clássicos.</p>
+      <p>Obrigado por usar nossa plataforma!</p>
+    </section>
+
+    <div style="text-align: center; margin-top: 20px;">
+      <button onclick="history.back()" style="background:#00adee; border:none; padding:10px 20px; color:#fff; border-radius:6px; cursor:pointer;">
+        🔙 Voltar
+      </button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - Todos os direitos reservados</p>
+    <a href="privacidade.html">Política de Privacidade</a> |
+    <a href="termos.html">Termos de Uso</a>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const sidebar = document.getElementById("sidebar");
+    const closeSidebar = document.getElementById("closeSidebar");
+
+    menuToggle.addEventListener("click", () => {
+      sidebar.style.left = "0";
+    });
+
+    closeSidebar.addEventListener("click", () => {
+      sidebar.style.left = "-250px";
+    });
+  </script>
+</body>
+</html>
