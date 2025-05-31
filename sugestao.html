@@ -5,32 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sugerir um Filme</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .voltar-btn {
+      display: inline-block;
+      margin: 15px 20px;
+      padding: 10px 15px;
+      background-color: #00adee;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .voltar-btn:hover {
+      background-color: #008bbd;
+    }
+
+    .form-container {
+      max-width: 500px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: none;
+    }
+
+    form button {
+      padding: 10px 20px;
+      background: #00adee;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background: #008bbd;
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>Sugerir um Filme ou Série</h1>
   </header>
 
+  <a href="javascript:history.back()" class="voltar-btn">🔙 Voltar</a>
+
   <main>
-    <section style="text-align:center; padding: 20px;">
+    <section class="form-container">
       <p>Envie sua sugestão de filme ou série. Nós vamos analisar com carinho!</p>
       
-      <form action="https://formsubmit.co/douglasjose807gg@gmail.com" method="POST" style="max-width: 500px; margin: auto;">
+      <form action="https://formsubmit.co/SEUEMAIL@email.com" method="POST">
         <!-- Proteção contra SPAM -->
         <input type="hidden" name="_captcha" value="false">
         <!-- Redireciona após o envio -->
         <input type="hidden" name="_next" value="https://uni-lux.github.io/Universo-doug/agradecimento.html">
 
-        <div style="margin-bottom: 15px;">
-          <input type="text" name="nome" placeholder="Seu nome" required style="width: 100%; padding: 10px;">
-        </div>
-        <div style="margin-bottom: 15px;">
-          <input type="email" name="email" placeholder="Seu e-mail" required style="width: 100%; padding: 10px;">
-        </div>
-        <div style="margin-bottom: 15px;">
-          <textarea name="mensagem" placeholder="Digite sua sugestão" rows="5" required style="width: 100%; padding: 10px;"></textarea>
-        </div>
-        <button type="submit" style="padding: 10px 20px; background: #00adee; color: white; border: none; border-radius: 5px;">Enviar Sugestão</button>
+        <input type="text" name="nome" placeholder="Seu nome" required>
+        <input type="email" name="email" placeholder="Seu e-mail" required>
+        <textarea name="mensagem" placeholder="Digite sua sugestão" rows="5" required></textarea>
+        <button type="submit">Enviar Sugestão</button>
       </form>
     </section>
   </main>
