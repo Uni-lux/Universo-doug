@@ -1,183 +1,191 @@
 /* === Estilos Gerais === */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #111;
-    color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #111;
+  color: #fff;
 }
 
 header {
-    background-color: #222;
-    padding: 20px;
-    text-align: center;
-    position: relative;
+  background-color: #222;
+  padding: 20px;
+  text-align: center;
+  position: relative;
 }
 
 header h1 {
-    margin: 0;
+  margin: 0;
 }
 
 nav.top-menu {
-    margin-top: 10px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 nav.top-menu a {
-    color: #00adee;
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: 600;
+  color: #00adee;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: 600;
 }
 
 .search-box {
-    margin: 20px auto;
-    text-align: center;
+  margin: 20px auto;
+  text-align: center;
 }
 
 .search-box input {
-    padding: 10px;
-    width: 80%;
-    max-width: 400px;
-    border-radius: 8px;
-    border: none;
-    font-size: 16px;
+  padding: 10px;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
 }
 
 /* === Botão de menu lateral ☰ === */
 .menu-button {
-    display: none;
-    font-size: 28px;
-    background: none;
-    border: none;
-    color: #00adee;
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 1100;
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #00adee;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1100;
 }
 
 /* === Menu lateral === */
 .sidebar {
-    position: fixed;
-    top: 0;
-    left: -250px;
-    width: 250px;
-    height: 100%;
-    background-color: #222;
-    padding-top: 60px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.7);
-    transition: left 0.3s ease;
-    z-index: 1050;
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #222;
+  padding-top: 60px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.7);
+  transition: left 0.3s ease;
+  z-index: 1050;
 }
 
 .sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .sidebar ul li {
-    padding: 15px 20px;
+  padding: 15px 20px;
 }
 
 .sidebar ul li a {
-    color: #00adee;
-    text-decoration: none;
-    font-weight: 600;
-    display: block;
-    transition: background-color 0.2s;
+  color: #00adee;
+  text-decoration: none;
+  font-weight: 600;
+  display: block;
+  transition: background-color 0.2s;
 }
 
 .sidebar ul li a:hover {
-    background-color: #333;
-    border-radius: 5px;
+  background-color: #333;
+  border-radius: 5px;
 }
 
 /* === Botão de fechar (X) no menu lateral === */
 .close-button {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 24px;
-    background: none;
-    border: none;
-    color: #00adee;
-    cursor: pointer;
-    z-index: 1100;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #00adee;
+  cursor: pointer;
+  z-index: 1100;
 }
 
 /* === Estilos principais === */
 main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-    gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px;
 }
 
 .filme, .card {
-    background-color: #1c1c1c;
-    border: 1px solid #333;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    padding: 15px;
-    width: 300px;
-    text-align: center;
-    color: #fff;
-    transition: transform 0.2s;
+  background-color: #1c1c1c;
+  border: 1px solid #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  width: 300px;
+  text-align: center;
+  color: #fff;
+  transition: transform 0.2s;
 }
 
 .filme:hover, .card:hover {
-    transform: scale(1.03);
+  transform: scale(1.03);
 }
 
 .filme h2, .card h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .filme iframe, .card iframe {
-    width: 100%;
-    height: 170px;
-    border: none;
-    border-radius: 6px;
+  width: 100%;
+  height: 170px;
+  border: none;
+  border-radius: 6px;
 }
 
 /* === Footer === */
 footer {
-    text-align: center;
-    background-color: #222;
-    padding: 20px;
-    margin-top: 40px;
+  text-align: center;
+  background-color: #222;
+  padding: 20px;
+  margin-top: 40px;
 }
 
 footer a {
-    color: #00adee;
-    text-decoration: none;
-    margin: 0 5px;
+  color: #00adee;
+  text-decoration: none;
+  margin: 0 5px;
 }
 
 /* === 📱 Responsividade === */
 @media (max-width: 768px) {
-    nav.top-menu {
-        display: none;
-    }
+  nav.top-menu {
+    display: none; /* Oculta menu topo em telas pequenas */
+  }
 
-    .menu-button {
-        display: block;
-    }
+  .menu-button {
+    display: block;
+  }
 
-    .filme, .card {
-        width: 90%;
-    }
+  .filme, .card {
+    width: 90%;
+  }
 
-    .search-box input {
-        width: 95%;
-    }
+  .search-box input {
+    width: 95%;
+  }
 }
 
 @media (min-width: 769px) {
-    .menu-button {
-        display: none;
-    }
+  .menu-button {
+    display: none;
+  }
+
+  nav.top-menu {
+    display: flex; /* Garante que o menu apareça no desktop */
+  }
 }
