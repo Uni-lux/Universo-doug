@@ -17,12 +17,15 @@ header h1 {
   margin: 0;
 }
 
+/* ✅ Sempre mostrar menu topo */
 nav.top-menu {
-  margin-top: 10px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
+  margin-top: 10px;
+  background-color: #222;
+  padding: 10px 0;
 }
 
 nav.top-menu a {
@@ -46,7 +49,7 @@ nav.top-menu a {
   font-size: 16px;
 }
 
-/* === Botão de menu lateral ☰ === */
+/* ☰ Botão de menu lateral */
 .menu-button {
   font-size: 28px;
   background: none;
@@ -59,7 +62,7 @@ nav.top-menu a {
   z-index: 1100;
 }
 
-/* === Menu lateral === */
+/* Menu lateral */
 .sidebar {
   position: fixed;
   top: 0;
@@ -96,7 +99,7 @@ nav.top-menu a {
   border-radius: 5px;
 }
 
-/* === Botão de fechar (X) no menu lateral === */
+/* Botão fechar lateral */
 .close-button {
   position: absolute;
   top: 15px;
@@ -109,7 +112,7 @@ nav.top-menu a {
   z-index: 1100;
 }
 
-/* === Estilos principais === */
+/* Conteúdo principal */
 main {
   display: flex;
   flex-wrap: wrap;
@@ -146,7 +149,7 @@ main {
   border-radius: 6px;
 }
 
-/* === Footer === */
+/* Rodapé */
 footer {
   text-align: center;
   background-color: #222;
@@ -160,7 +163,7 @@ footer a {
   margin: 0 5px;
 }
 
-/* === 📱 Responsividade === */
+/* === 📱 Responsivo === */
 @media (max-width: 768px) {
   .filme, .card {
     width: 90%;
@@ -169,9 +172,14 @@ footer a {
   .search-box input {
     width: 95%;
   }
+
+  /* ✅ Não esconda o top-menu em celular */
+  nav.top-menu {
+    display: flex;
+  }
 }
 
-/* === 💻 Desktop: mantém menu lateral sempre visível === */
+/* === 💻 Desktop: mostra o menu lateral fixo === */
 @media (min-width: 769px) {
   .sidebar {
     left: 0;
