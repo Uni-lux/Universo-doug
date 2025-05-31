@@ -42,9 +42,9 @@ nav.top-menu a {
     font-size: 16px;
 }
 
-/* Botão de menu lateral ☰ */
+/* === Botão de menu lateral ☰ === */
 .menu-button {
-    display: none; /* padrão: oculto em desktop */
+    display: none;
     font-size: 28px;
     background: none;
     border: none;
@@ -53,20 +53,21 @@ nav.top-menu a {
     position: absolute;
     top: 20px;
     right: 20px;
+    z-index: 1100;
 }
 
 /* === Menu lateral === */
 .sidebar {
     position: fixed;
     top: 0;
-    left: -250px; /* começa escondido à esquerda */
+    left: -250px;
     width: 250px;
     height: 100%;
     background-color: #222;
     padding-top: 60px;
     box-shadow: 2px 0 5px rgba(0,0,0,0.7);
     transition: left 0.3s ease;
-    z-index: 1000;
+    z-index: 1050;
 }
 
 .sidebar ul {
@@ -92,7 +93,7 @@ nav.top-menu a {
     border-radius: 5px;
 }
 
-/* Botão fechar do menu lateral */
+/* === Botão de fechar (X) no menu lateral === */
 .close-button {
     position: absolute;
     top: 15px;
@@ -102,6 +103,7 @@ nav.top-menu a {
     border: none;
     color: #00adee;
     cursor: pointer;
+    z-index: 1100;
 }
 
 /* === Estilos principais === */
@@ -158,15 +160,11 @@ footer a {
 /* === 📱 Responsividade === */
 @media (max-width: 768px) {
     nav.top-menu {
-        display: none; /* Oculta menu do topo no mobile */
+        display: none;
     }
 
     .menu-button {
         display: block;
-        margin: 10px auto;
-        position: absolute;
-        top: 20px;
-        right: 20px;
     }
 
     .filme, .card {
@@ -180,6 +178,6 @@ footer a {
 
 @media (min-width: 769px) {
     .menu-button {
-        display: none; /* Oculta botão ☰ em telas maiores */
+        display: none;
     }
 }
