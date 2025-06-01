@@ -58,23 +58,27 @@
 
     // Exibir favoritos
     const container = document.getElementById("listaFavoritos");
-    const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 
-    if (favoritos.length === 0) {
-      container.innerHTML = "<p style='text-align:center;'>Nenhum favorito ainda.</p>";
-    } else {
-      favoritos.forEach((titulo, index) => {
-        const card = document.createElement("section");
-        card.className = "card";
-        card.innerHTML = `
-          <h2>${titulo}</h2>
-          <p>(Vídeo não disponível nesta visualização — você pode melhorar isso ligando com os links futuramente)</p>
-          <button onclick="removerFavorito(${index})">🗑 Remover</button>
-        `;
-        container.appendChild(card);
-      });
-    }
+if (favoritos.length === 0) {
+  container.innerHTML = "<p style='text-align:center;'>Nenhum favorito ainda.</p>";
+} else {
+  favoritos.forEach((item, index) => {
+    const card = document.createElement("section");
+    card.className = "card";
 
+    const videoEmbed = item.video
+      ? `<iframe src="${item.video}" allowfullscreen></iframe>`
+      : `<p style="color: #888;">(Sem vídeo disponível)</p>`;
+
+    card.innerHTML = `
+      <h2>${item.titulo}</h2>
+      ${videoEmbed}
+      <button onclick="removerFavorito(${index})">🗑 Remover</button>
+    `;
+    container.appendChild(card);
+  });
+}
     // Função para remover favorito
     function removerFavorito(index) {
       favoritos.splice(index, 1);
