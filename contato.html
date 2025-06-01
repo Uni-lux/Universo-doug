@@ -3,19 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contato</title>
+  <title>Contato - Filmes & Séries</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>Contato</h1>
+    <h1>Filmes & Séries</h1>
     <button id="menuToggle" class="menu-button">☰</button>
     <nav class="top-menu">
       <a href="inicio.html">Início</a>
       <a href="filmes.html">Filmes</a>
       <a href="series.html">Séries</a>
-      <a href="contato.html" class="ativo">Contato</a>
+      <a href="sugestao.html">Sugerir</a>
+      <a href="contato.html">Contato</a>
     </nav>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Pesquisar filmes ou séries..." />
+    </div>
   </header>
 
   <aside id="sidebar" class="sidebar">
@@ -35,16 +39,20 @@
   </aside>
 
   <main>
-    <section class="form-card">
+    <form action="https://formsubmit.co/SEU-EMAIL@gmail.com" method="POST">
       <h2>Fale Conosco</h2>
-      <p>Envie sua dúvida, sugestão ou feedback. Responderemos o mais breve possível.</p>
-      <form action="https://formsubmit.co/SEU_EMAIL_AQUI" method="POST">
-        <input type="text" name="nome" placeholder="Seu nome" required />
-        <input type="email" name="email" placeholder="Seu e-mail" required />
-        <textarea name="mensagem" placeholder="Digite sua mensagem..." rows="5" required></textarea>
-        <button type="submit">📩 Enviar</button>
-      </form>
-    </section>
+      
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required />
+      
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required />
+      
+      <label for="mensagem">Mensagem:</label>
+      <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem aqui..." required></textarea>
+      
+      <button type="submit">Enviar</button>
+    </form>
   </main>
 
   <footer>
@@ -54,7 +62,6 @@
   </footer>
 
   <script>
-    // Menu lateral
     const menuToggle = document.getElementById("menuToggle");
     const sidebar = document.getElementById("sidebar");
     const closeSidebar = document.getElementById("closeSidebar");
@@ -65,6 +72,17 @@
 
     closeSidebar.addEventListener("click", () => {
       sidebar.style.left = "-250px";
+    });
+
+    const searchInput = document.getElementById("searchInput");
+    searchInput.addEventListener("keyup", function () {
+      const searchTerm = searchInput.value.toLowerCase();
+      const cards = document.querySelectorAll(".card");
+
+      cards.forEach((card) => {
+        const title = card.querySelector("h2").textContent.toLowerCase();
+        card.style.display = title.includes(searchTerm) ? "block" : "none";
+      });
     });
   </script>
 </body>
