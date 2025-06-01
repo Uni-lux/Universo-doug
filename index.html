@@ -1,127 +1,85 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Filmes & Séries Online</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Universo Doug - Filmes e Séries</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <header>
-    <h1>Filmes & Séries</h1>
-    <button id="menuToggle" class="menu-button" aria-label="Abrir menu lateral">☰</button>
-
-    <nav class="top-menu" role="navigation" aria-label="Menu principal">
-      <a href="index.html" class="nav-link active">Início</a>
-      <a href="filmes.html" class="nav-link">Filmes</a>
-      <a href="series.html" class="nav-link">Séries</a>
-      <a href="contato.html" class="nav-link">Contato</a>
+    <h1>Universo Doug</h1>
+    <button class="menu-button" onclick="toggleSidebar()">☰</button>
+    <nav class="top-menu">
+      <a href="index.html">Início</a>
+      <a href="filmes.html">Filmes</a>
+      <a href="series.html">Séries</a>
+      <a href="lancamentos.html">Lançamentos</a>
+      <a href="categorias.html">Categorias</a>
+      <a href="favoritos.html">Favoritos</a>
+      <a href="novidades.html">Novidades</a>
+      <a href="sugestao.html">Sugira</a>
+      <a href="sobre.html">Sobre</a>
     </nav>
-
-    <div class="search-box" role="search">
-      <input
-        type="search"
-        id="searchInput"
-        placeholder="Pesquisar filmes ou séries..."
-        aria-label="Pesquisar filmes ou séries"
-      />
-    </div>
   </header>
 
-  <aside id="sidebar" class="sidebar" aria-label="Menu lateral">
-    <button id="closeSidebar" class="close-button" aria-label="Fechar menu lateral">✖</button>
+  <aside class="sidebar" id="sidebar">
+    <button class="close-button" onclick="toggleSidebar()">✖</button>
     <ul>
       <li><a href="index.html">Início</a></li>
-      <li><a href="sugestao.html">Sugerir um Filme</a></li>
-      <li><a href="lançamentos.html">Lançamentos</a></li>
+      <li><a href="filmes.html">Filmes</a></li>
+      <li><a href="series.html">Séries</a></li>
+      <li><a href="lancamentos.html">Lançamentos</a></li>
       <li><a href="categorias.html">Categorias</a></li>
-      <li><a href="favoritos.html">Minha Lista</a></li>
+      <li><a href="favoritos.html">Favoritos</a></li>
       <li><a href="novidades.html">Novidades</a></li>
+      <li><a href="sugestao.html">Sugira um título</a></li>
       <li><a href="sobre.html">Sobre</a></li>
-      <li><a href="ajuda.html">Ajuda</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="login.html">Entrar</a></li>
+      <li><a href="contato.html">Contato</a></li>
     </ul>
   </aside>
 
-  <main>
-    <section class="card filme-card">
-      <h2>Nome do Filme 1</h2>
-      <div class="video-wrapper">
-        <iframe
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-          allowfullscreen
-          title="Trailer do Nome do Filme 1"
-        ></iframe>
-      </div>
-      <button class="favorito-btn" onclick="adicionarFavorito('Nome do Filme 1')">❤ Favoritar</button>
-    </section>
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Pesquisar filmes ou séries..." oninput="buscarConteudo()">
+  </div>
 
-    <section class="card filme-card">
-      <h2>Nome do Filme 2</h2>
-      <div class="video-wrapper">
-        <iframe
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-          allowfullscreen
-          title="Trailer do Nome do Filme 2"
-        ></iframe>
-      </div>
-      <button class="favorito-btn" onclick="adicionarFavorito('Nome do Filme 2')">❤ Favoritar</button>
-    </section>
-
-    <div class="btn-back-container">
-      <button class="btn-back" onclick="history.back()">🔙 Voltar</button>
+  <main id="conteudo">
+    <div class="filme">
+      <h2>Filme 1</h2>
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID1" allowfullscreen></iframe>
     </div>
+
+    <div class="filme">
+      <h2>Filme 2</h2>
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID2" allowfullscreen></iframe>
+    </div>
+
+    <!-- Adicione mais filmes aqui -->
   </main>
 
   <footer>
-    <p>&copy; 2025 - Todos os direitos reservados</p>
-    <a href="privacidade.html">Política de Privacidade</a> |
-    <a href="termos.html">Termos de Uso</a>
+    <p>&copy; 2025 Universo Doug. Todos os direitos reservados.</p>
+    <a href="politica.html">Política de Privacidade</a> |
+    <a href="termos.html">Termos de Uso</a> |
+    <a href="contato.html">Contato</a>
   </footer>
 
   <script>
-    // Menu lateral
-    const menuToggle = document.getElementById("menuToggle");
-    const sidebar = document.getElementById("sidebar");
-    const closeSidebar = document.getElementById("closeSidebar");
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      sidebar.style.left = sidebar.style.left === "0px" ? "-250px" : "0px";
+    }
 
-    menuToggle.addEventListener("click", () => {
-      sidebar.style.left = "0";
-    });
-
-    closeSidebar.addEventListener("click", () => {
-      sidebar.style.left = "-250px";
-    });
-
-    // Barra de pesquisa
-    const searchInput = document.getElementById("searchInput");
-    searchInput.addEventListener("keyup", function () {
-      const searchTerm = searchInput.value.toLowerCase();
-      const cards = document.querySelectorAll(".card");
-
-      cards.forEach((card) => {
-        const title = card.querySelector("h2").textContent.toLowerCase();
-        card.style.display = title.includes(searchTerm) ? "block" : "none";
+    function buscarConteudo() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const filmes = document.querySelectorAll('.filme');
+      filmes.forEach(filme => {
+        const titulo = filme.querySelector('h2').innerText.toLowerCase();
+        filme.style.display = titulo.includes(input) ? 'block' : 'none';
       });
-    });
-
-    // Adicionar aos favoritos
-    function adicionarFavorito(titulo) {
-      const iframe = event.target.closest(".card").querySelector("iframe");
-      const videoURL = iframe ? iframe.src : "";
-
-      let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
-
-      const jaExiste = favoritos.some((f) => f.titulo === titulo);
-      if (!jaExiste) {
-        favoritos.push({ titulo: titulo, video: videoURL });
-        localStorage.setItem("favoritos", JSON.stringify(favoritos));
-        alert(`"${titulo}" adicionado aos favoritos!`);
-      } else {
-        alert(`"${titulo}" já está na sua lista.`);
-      }
     }
   </script>
+
 </body>
 </html>
