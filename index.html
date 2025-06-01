@@ -1,176 +1,13 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html><html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Filmes & Séries Online</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #111;
-      color: white;
-    }
-
-    header {
-      background-color: #000;
-      padding: 15px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: #ffc400;
-    }
-
-    .top-menu {
-      display: flex;
-      gap: 15px;
-    }
-
-    .top-menu a {
-      color: white;
-      text-decoration: none;
-      padding: 10px 15px;
-      background-color: #222;
-      border-radius: 25px;
-      transition: 0.3s;
-    }
-
-    .top-menu a:hover {
-      background-color: #ffc400;
-      color: black;
-    }
-
-    .search-box {
-      flex: 1;
-      text-align: center;
-      margin-top: 10px;
-    }
-
-    .search-box input {
-      padding: 10px;
-      width: 80%;
-      max-width: 400px;
-      border-radius: 25px;
-      border: none;
-      background-color: #222;
-      color: white;
-    }
-
-    .menu-button {
-      display: none;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 24px;
-      cursor: pointer;
-    }
-
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: -250px;
-      width: 250px;
-      height: 100%;
-      background-color: #000;
-      padding: 20px;
-      transition: left 0.3s;
-      z-index: 1001;
-    }
-
-    .sidebar ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .sidebar ul li {
-      margin-bottom: 15px;
-    }
-
-    .sidebar a {
-      color: white;
-      text-decoration: none;
-    }
-
-    .close-button {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 20px;
-      cursor: pointer;
-      position: absolute;
-      top: 15px;
-      right: 15px;
-    }
-
-    main {
-      padding: 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .card {
-      background-color: #1e1e1e;
-      padding: 20px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      box-shadow: 0 0 10px rgba(255, 196, 0, 0.1);
-    }
-
-    .card h2 {
-      margin-top: 0;
-    }
-
-    iframe {
-      width: 100%;
-      height: 315px;
-      border: none;
-      border-radius: 8px;
-    }
-
-    .favorito-btn {
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #ffc400;
-      color: black;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .favorito-btn:hover {
-      background-color: #e6af00;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #aaa;
-      background-color: #000;
-    }
-
-    @media (max-width: 768px) {
-      .menu-button {
-        display: block;
-      }
-      .top-menu {
-        display: none;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <div class="logo">🎬 Filmes & Séries</div>
+    <h1>Filmes & Séries</h1>
     <button id="menuToggle" class="menu-button">☰</button>
     <nav class="top-menu">
       <a href="index.html">Início</a>
@@ -181,9 +18,7 @@
     <div class="search-box">
       <input type="text" id="searchInput" placeholder="Pesquisar filmes ou séries..." />
     </div>
-  </header>
-
-  <aside id="sidebar" class="sidebar">
+  </header>  <aside id="sidebar" class="sidebar">
     <button id="closeSidebar" class="close-button">✖</button>
     <ul>
       <li><a href="index.html">Início</a></li>
@@ -197,30 +32,24 @@
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="login.html">Entrar</a></li>
     </ul>
-  </aside>
-
-  <main>
+  </aside>  <main>
     <section class="card">
       <h2>Nome do Filme 1</h2>
       <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
       <button class="favorito-btn" onclick="adicionarFavorito('Nome do Filme 1')">❤ Favoritar</button>
-    </section>
+    </section><section class="card">
+  <h2>Nome do Filme 2</h2>
+  <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+  <button class="favorito-btn" onclick="adicionarFavorito('Nome do Filme 2')">❤ Favoritar</button>
+</section>
 
-    <section class="card">
-      <h2>Nome do Filme 2</h2>
-      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-      <button class="favorito-btn" onclick="adicionarFavorito('Nome do Filme 2')">❤ Favoritar</button>
-    </section>
-  </main>
+<button onclick="history.back()">🔙 Voltar</button>
 
-  <footer>
+  </main>  <footer>
     <p>&copy; 2025 - Todos os direitos reservados</p>
     <a href="privacidade.html">Política de Privacidade</a> |
     <a href="termos.html">Termos de Uso</a>
-  </footer>
-
-  <script>
-    // Menu lateral
+  </footer>  <script>
     const menuToggle = document.getElementById("menuToggle");
     const sidebar = document.getElementById("sidebar");
     const closeSidebar = document.getElementById("closeSidebar");
@@ -233,7 +62,6 @@
       sidebar.style.left = "-250px";
     });
 
-    // Barra de pesquisa
     const searchInput = document.getElementById("searchInput");
     searchInput.addEventListener("keyup", function () {
       const searchTerm = searchInput.value.toLowerCase();
@@ -241,26 +69,3 @@
 
       cards.forEach((card) => {
         const title = card.querySelector("h2").textContent.toLowerCase();
-        card.style.display = title.includes(searchTerm) ? "block" : "none";
-      });
-    });
-
-    // Adicionar aos favoritos
-    function adicionarFavorito(titulo) {
-      const iframe = event.target.closest(".card").querySelector("iframe");
-      const videoURL = iframe ? iframe.src : "";
-
-      let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
-
-      const jaExiste = favoritos.some(f => f.titulo === titulo);
-      if (!jaExiste) {
-        favoritos.push({ titulo: titulo, video: videoURL });
-        localStorage.setItem("favoritos", JSON.stringify(favoritos));
-        alert(`"${titulo}" adicionado aos favoritos!`);
-      } else {
-        alert(`"${titulo}" já está na sua lista.`);
-      }
-    }
-  </script>
-</body>
-</html>
