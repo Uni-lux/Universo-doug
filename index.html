@@ -79,14 +79,21 @@
     });
 
     function adicionarFavorito(titulo) {
-      let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
-      if (!favoritos.includes(titulo)) {
-        favoritos.push(titulo);
-        localStorage.setItem("favoritos", JSON.stringify(favoritos));
-        alert(`"${titulo}" adicionado aos favoritos!`);
-      } else {
-        alert(`"${titulo}" já está na sua lista.`);
-      }
+  // Busca o iframe mais próximo (associado ao botão clicado)
+  const iframe = event.target.closest(".card").querySelector("iframe");
+  const videoURL = iframe ? iframe.src : "";
+
+  let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+
+  // Verifica se já existe esse título
+  const jaExiste = favoritos.some(f => f.titulo === titulo);
+  if (!jaExiste) {
+    favoritos.push({ titulo: titulo, video: videoURL });
+    localStorage.setItem("favoritos", JSON.stringify(favoritos));
+    alert(`"${titulo}" adicionado aos favoritos!`);
+  } else {
+    alert(`"${titulo}" já está na sua lista.`);
+  }
     }
   </script></body>
 </html>
