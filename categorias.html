@@ -111,4 +111,59 @@
         </div>
         <div class="categoria-card">
           <h3>Terror</h3>
-          <p>Prepare-se para sustos, tensão
+          <p>Prepare-se para sustos, tensão e muito suspense.</p>
+        </div>
+        <div class="categoria-card">
+          <h3>Romance</h3>
+          <p>Histórias apaixonantes que tocam o coração.</p>
+        </div>
+        <div class="categoria-card">
+          <h3>Documentários</h3>
+          <p>Conteúdos informativos e reflexivos sobre o mundo real.</p>
+        </div>
+        <div class="categoria-card">
+          <h3>Animação</h3>
+          <p>Entretenimento divertido para todas as idades.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - Todos os direitos reservados</p>
+    <a href="privacidade.html">Política de Privacidade</a> |
+    <a href="termos.html">Termos de Uso</a>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuToggle = document.getElementById("menuToggle");
+      const sidebar = document.getElementById("sidebar");
+      const closeSidebar = document.getElementById("closeSidebar");
+
+      if (menuToggle && sidebar && closeSidebar) {
+        menuToggle.addEventListener("click", () => {
+          sidebar.style.left = "0";
+        });
+
+        closeSidebar.addEventListener("click", () => {
+          sidebar.style.left = "-250px";
+        });
+      }
+
+      const searchInput = document.getElementById("searchInput");
+      if (searchInput) {
+        searchInput.addEventListener("keyup", function () {
+          const searchTerm = searchInput.value.toLowerCase();
+          const cards = document.querySelectorAll(".categoria-card");
+
+          cards.forEach((card) => {
+            const title = card.querySelector("h3").textContent.toLowerCase();
+            card.style.display = title.includes(searchTerm) ? "block" : "none";
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
