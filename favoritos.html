@@ -58,32 +58,37 @@
 
     // Exibir favoritos
     const container = document.getElementById("listaFavoritos");
-const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+    let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 
-if (favoritos.length === 0) {
-  container.innerHTML = "<p style='text-align:center;'>Nenhum favorito ainda.</p>";
-} else {
-  favoritos.forEach((item, index) => {
-    const card = document.createElement("section");
-    card.className = "card";
+    if (favoritos.length === 0) {
+      container.innerHTML = "<p style='text-align:center;'>Nenhum favorito ainda.</p>";
+    } else {
+      favoritos.forEach((item, index) => {
+        const card = document.createElement("section");
+        card.className = "card";
 
-    const videoEmbed = item.video
-      ? `<iframe src="${item.video}" allowfullscreen></iframe>`
-      : `<p style="color: #888;">(Sem vídeo disponível)</p>`;
+        // Compatibilidade com dados antigos (string simples)
+        const titulo = typeof item === "string" ? item : item.titulo;
+        const video = typeof item === "object" && item.video ? item.video : "";
 
-    card.innerHTML = `
-      <h2>${item.titulo}</h2>
-      ${videoEmbed}
-      <button onclick="removerFavorito(${index})">🗑 Remover</button>
-    `;
-    container.appendChild(card);
-  });
-}
-    // Função para remover favorito
+        const videoHTML = video
+          ? `<iframe src="${video}" allowfullscreen></iframe>`
+          : `<p style="color: #888;">(Sem vídeo disponível)</p>`;
+
+        card.innerHTML = `
+          <h2>${titulo}</h2>
+          ${videoHTML}
+          <button onclick="removerFavorito(${index})">🗑 Remover</button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Remover favorito
     function removerFavorito(index) {
       favoritos.splice(index, 1);
       localStorage.setItem("favoritos", JSON.stringify(favoritos));
-      location.reload(); // Atualiza a página
+      location.reload();
     }
   </script>
 </body>
