@@ -2,38 +2,37 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Filmes & Séries Online</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <header>
-    <h1>Filmes & Séries</h1>
-
-    <button id="menuToggle" class="menu-button" aria-label="Abrir menu lateral">☰</button>
-
+  <!-- 🔝 Cabeçalho -->
+  <header class="main-header">
+    <div class="logo">🎬 Filmes & Séries</div>
     <nav class="top-menu">
-      <a href="index.html">Início</a>
+      <a href="index.html" class="active">Início</a>
       <a href="filmes.html">Filmes</a>
       <a href="series.html">Séries</a>
-      <a href="contato.html">Contato</a>
+      <a href="novidades.html">Novidades</a>
+      <a href="categorias.html">Categorias</a>
     </nav>
-
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Pesquisar filmes ou séries..." aria-label="Pesquisar filmes ou séries" />
-    </div>
+    <button id="menuToggle" class="menu-button">☰</button>
   </header>
 
-  <aside id="sidebar" class="sidebar" aria-label="Menu lateral">
-    <button id="closeSidebar" class="close-button" aria-label="Fechar menu lateral">✖</button>
+  <!-- 🔍 Pesquisa -->
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Buscar por nome..." />
+  </div>
+
+  <!-- 🧭 Menu Lateral -->
+  <aside id="sidebar" class="sidebar">
+    <button id="closeSidebar" class="close-button">✖</button>
     <ul>
       <li><a href="index.html">Início</a></li>
       <li><a href="sugestao.html">Sugerir um Filme</a></li>
       <li><a href="lançamentos.html">Lançamentos</a></li>
-      <li><a href="categorias.html">Categorias</a></li>
       <li><a href="favoritos.html">Minha Lista</a></li>
-      <li><a href="novidades.html">Novidades</a></li>
       <li><a href="sobre.html">Sobre</a></li>
       <li><a href="ajuda.html">Ajuda</a></li>
       <li><a href="faq.html">FAQ</a></li>
@@ -41,44 +40,43 @@
     </ul>
   </aside>
 
-  <main>
+  <!-- 🖥️ Banner Inicial -->
+  <section class="hero">
+    <h2>Assista aos melhores filmes e séries online</h2>
+    <p>Totalmente grátis e sem cadastro</p>
+  </section>
 
-    <!-- Hero Banner -->
-    <section class="hero-banner" role="banner" aria-label="Filme em destaque">
-      <div class="hero-content">
-        <h2>🧛 Drácula: A Origem</h2>
-        <p>Uma nova era de terror começa agora. Mergulhe nessa história assustadora e cheia de suspense.</p>
-        <a href="filmes.html#dracula" class="btn-primary" aria-label="Assistir Drácula: A Origem">▶ Assistir Agora</a>
-      </div>
+  <!-- 🎬 Cards de Filmes -->
+  <main class="card-container">
+    <section class="card">
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+      <h3>Nome do Filme 1</h3>
+      <button class="favorito-btn" onclick="adicionarFavorito('Nome do Filme 1')">❤ Favoritar</button>
     </section>
 
-    <!-- Seção de filmes/séries em cards -->
-    <section class="cards-container" aria-label="Lista de filmes e séries">
-      <article class="card">
-        <h3>Nome do Filme 1</h3>
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen title="Trailer Nome do Filme 1"></iframe>
-        <button class="favorito-btn" onclick="adicionarFavorito('Nome do Filme 1')">❤ Favoritar</button>
-      </article>
-
-      <article class="card">
-        <h3>Nome do Filme 2</h3>
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen title="Trailer Nome do Filme 2"></iframe>
-        <button class="favorito-btn" onclick="adicionarFavorito('Nome do Filme 2')">❤ Favoritar</button>
-      </article>
-
-      <!-- Pode adicionar mais cards aqui -->
+    <section class="card">
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+      <h3>Nome do Filme 2</h3>
+      <button class="favorito-btn" onclick="adicionarFavorito('Nome do Filme 2')">❤ Favoritar</button>
     </section>
 
+    <!-- Adicione mais cards conforme necessário -->
   </main>
 
+  <!-- 🔙 Botão voltar -->
+  <div class="voltar">
+    <button onclick="history.back()">🔙 Voltar</button>
+  </div>
+
+  <!-- 🔻 Rodapé -->
   <footer>
     <p>&copy; 2025 - Todos os direitos reservados</p>
     <a href="privacidade.html">Política de Privacidade</a> |
     <a href="termos.html">Termos de Uso</a>
   </footer>
 
+  <!-- 🔧 Scripts -->
   <script>
-    // Menu lateral
     const menuToggle = document.getElementById("menuToggle");
     const sidebar = document.getElementById("sidebar");
     const closeSidebar = document.getElementById("closeSidebar");
@@ -91,7 +89,6 @@
       sidebar.style.left = "-250px";
     });
 
-    // Barra de pesquisa
     const searchInput = document.getElementById("searchInput");
     searchInput.addEventListener("keyup", function () {
       const searchTerm = searchInput.value.toLowerCase();
@@ -103,13 +100,10 @@
       });
     });
 
-    // Adicionar aos favoritos
     function adicionarFavorito(titulo) {
       const iframe = event.target.closest(".card").querySelector("iframe");
       const videoURL = iframe ? iframe.src : "";
-
       let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
-
       const jaExiste = favoritos.some(f => f.titulo === titulo);
       if (!jaExiste) {
         favoritos.push({ titulo: titulo, video: videoURL });
