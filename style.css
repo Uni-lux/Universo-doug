@@ -1,23 +1,57 @@
 /* === Estilos Gerais === */
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: Arial, sans-serif;
   margin: 0;
   background-color: #111;
   color: #fff;
 }
 
 header {
-  background-color: #1a1a1a;
+  background-color: #222;
   padding: 20px;
   text-align: center;
   position: relative;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 header h1 {
   margin: 0;
-  font-size: 28px;
+}
+
+/* ✅ Sempre mostrar menu topo */
+nav.top-menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  background-color: #222;
+  padding: 10px 0;
+}
+
+nav.top-menu a {
   color: #00adee;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav.top-menu a:hover {
+  color: #ffc400;
+}
+
+.search-box {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.search-box input {
+  padding: 10px;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
 }
 
 /* ☰ Botão de menu lateral */
@@ -31,61 +65,23 @@ header h1 {
   top: 20px;
   right: 20px;
   z-index: 1100;
+  transition: color 0.3s ease;
 }
 
-/* Menu topo */
-nav.top-menu {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 15px;
-  padding: 10px;
+.menu-button:hover {
+  color: #ffc400;
 }
 
-nav.top-menu a {
-  background-color: #222;
-  color: #00adee;
-  text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 25px;
-  font-weight: 600;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-nav.top-menu a:hover {
-  background-color: #00adee;
-  color: #111;
-}
-
-/* 🔍 Barra de pesquisa */
-.search-box {
-  margin: 20px auto;
-  text-align: center;
-}
-
-.search-box input {
-  padding: 10px 15px;
-  width: 90%;
-  max-width: 400px;
-  border-radius: 30px;
-  border: none;
-  font-size: 16px;
-  background-color: #222;
-  color: white;
-  box-shadow: 0 0 10px rgba(0, 173, 238, 0.1);
-}
-
-/* 🧭 Menu Lateral */
+/* Menu lateral */
 .sidebar {
   position: fixed;
   top: 0;
   left: -250px;
   width: 250px;
   height: 100%;
-  background-color: #1c1c1c;
+  background-color: #222;
   padding-top: 60px;
-  box-shadow: 2px 0 8px rgba(0,0,0,0.7);
+  box-shadow: 2px 0 5px rgba(0,0,0,0.7);
   transition: left 0.3s ease;
   z-index: 1050;
 }
@@ -105,14 +101,16 @@ nav.top-menu a:hover {
   text-decoration: none;
   font-weight: 600;
   display: block;
-  border-radius: 6px;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, color 0.3s;
 }
 
 .sidebar ul li a:hover {
   background-color: #333;
+  border-radius: 5px;
+  color: #ffc400;
 }
 
+/* Botão fechar lateral */
 .close-button {
   position: absolute;
   top: 15px;
@@ -122,97 +120,205 @@ nav.top-menu a:hover {
   border: none;
   color: #00adee;
   cursor: pointer;
+  z-index: 1100;
+  transition: color 0.3s ease;
 }
 
-/* 🎬 Cards de Filmes */
+.close-button:hover {
+  color: #ffc400;
+}
+
+/* Conteúdo principal */
 main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 40px;
+  margin-left: 0; /* para mobile */
+  transition: margin-left 0.3s ease;
+}
+
+/* === Hero Banner === */
+.hero-banner {
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80') center center/cover no-repeat;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffc400;
+  text-shadow: 0 0 8px #000;
+  padding: 0 20px;
+  border-radius: 12px;
+  max-width: 1000px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hero-content {
+  max-width: 600px;
+  background: rgba(17, 17, 17, 0.75);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #ffc400aa;
+  text-align: center;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  line-height: 1.4;
+  color: #fff;
+}
+
+.btn-primary {
+  background-color: #ffc400;
+  color: #111;
+  font-weight: bold;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background-color: #e6af00;
+  color: #111;
+  text-decoration: none;
+}
+
+/* Cards container */
+.cards-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 30px 20px;
-  gap: 30px;
+  gap: 20px;
+  max-width: 1000px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .card {
-  background-color: #1e1e1e;
+  background-color: #1c1c1c;
   border: 1px solid #333;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-  padding: 20px;
-  width: 320px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  width: 300px;
   text-align: center;
-  transition: transform 0.3s;
+  color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .card:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px #00adeeaa;
 }
 
-.card h2 {
+.card h3 {
   font-size: 20px;
   margin-bottom: 15px;
-  color: #00adee;
 }
 
 .card iframe {
   width: 100%;
-  height: 180px;
+  height: 170px;
   border: none;
-  border-radius: 10px;
+  border-radius: 6px;
   margin-bottom: 15px;
 }
 
-/* ❤ Botão Favorito */
+/* Botão favorito */
 .favorito-btn {
   background-color: #00adee;
-  color: #fff;
   border: none;
-  border-radius: 30px;
+  color: white;
+  font-weight: 600;
   padding: 10px 20px;
-  font-weight: bold;
+  border-radius: 30px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 .favorito-btn:hover {
   background-color: #008bb5;
 }
 
-/* 🔙 Botão Voltar */
-main button {
-  background-color: #444;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 30px;
-  cursor: pointer;
-  margin-top: 20px;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-main button:hover {
-  background-color: #666;
-}
-
-/* 🔻 Rodapé */
+/* Rodapé */
 footer {
   text-align: center;
-  background-color: #1a1a1a;
+  background-color: #222;
   padding: 20px;
   margin-top: 40px;
-  font-size: 14px;
-  color: #aaa;
 }
 
 footer a {
   color: #00adee;
   text-decoration: none;
   margin: 0 5px;
+  transition: color 0.3s ease;
 }
 
-/* 📱 Responsivo */
+footer a:hover {
+  color: #ffc400;
+}
+
+/* === Página Sobre === */
+.sobre-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background-color: #1c1c1c;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  line-height: 1.8;
+}
+
+.sobre-container h2 {
+  color: #00adee;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.sobre-container p {
+  font-size: 16px;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+/* === 📱 Responsivo === */
 @media (max-width: 768px) {
+  main {
+    margin-left: 0 !important;
+    padding: 15px 10px;
+  }
+
+  .hero-banner {
+    height: 300px;
+  }
+  .hero-content h2 {
+    font-size: 1.8rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .card {
     width: 90%;
   }
@@ -221,12 +327,17 @@ footer a {
     width: 95%;
   }
 
+  /* ✅ Não esconda o top-menu em celular */
   nav.top-menu {
-    flex-direction: column;
+    display: flex;
+  }
+
+  .sobre-container {
+    padding: 20px 15px;
   }
 }
 
-/* 💻 Exibir menu lateral fixo em telas largas */
+/* === 💻 Desktop: mostra o menu lateral fixo === */
 @media (min-width: 769px) {
   .sidebar {
     left: 0;
@@ -235,4 +346,53 @@ footer a {
   main {
     margin-left: 250px;
   }
+}
+
+/* === Formulários: Contato e Sugestão === */
+form {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #1c1c1c;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #00adee;
+}
+
+form input,
+form textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  resize: vertical;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+form textarea {
+  height: 120px;
+}
+
+form button[type="submit"] {
+  background-color: #00adee;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button[type="submit"]:hover {
+  background-color: #008bb5;
   }
