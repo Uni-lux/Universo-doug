@@ -41,7 +41,11 @@
   <main>
     <form action="https://formsubmit.co/SEU-EMAIL@gmail.com" method="POST">
       <h2>Fale Conosco</h2>
-      
+
+      <!-- Redirecionamento automático após envio -->
+      <input type="hidden" name="_next" value="https://seudominio.com/index.html">
+      <input type="hidden" name="_captcha" value="false">
+
       <label for="nome">Nome:</label>
       <input type="text" id="nome" name="nome" required />
       
@@ -78,9 +82,8 @@
     searchInput.addEventListener("keyup", function () {
       const searchTerm = searchInput.value.toLowerCase();
       const cards = document.querySelectorAll(".card");
-
       cards.forEach((card) => {
-        const title = card.querySelector("h2").textContent.toLowerCase();
+        const title = card.querySelector("h2")?.textContent.toLowerCase() || '';
         card.style.display = title.includes(searchTerm) ? "block" : "none";
       });
     });
