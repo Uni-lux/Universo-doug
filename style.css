@@ -1,103 +1,65 @@
 /* === Estilos Gerais === */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Arial, sans-serif;
   margin: 0;
-  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
-  color: #eee;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #111;
+  color: #fff;
 }
 
 header {
-  background-color: #121212cc;
+  background-color: #222;
   padding: 20px;
   text-align: center;
   position: relative;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-  border-bottom: 2px solid #00adee;
 }
 
 header h1 {
   margin: 0;
-  font-size: 2.8rem;
-  font-weight: 900;
-  letter-spacing: 3px;
-  color: #00adee;
-  text-shadow: 0 0 15px #00adee;
 }
 
-/* Menu topo */
+/* ✅ Sempre mostrar menu topo */
 nav.top-menu {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 15px;
-  background-color: transparent;
+  gap: 10px;
+  margin-top: 10px;
+  background-color: #222;
+  padding: 10px 0;
 }
 
 nav.top-menu a {
   color: #00adee;
   text-decoration: none;
-  font-weight: 700;
-  font-size: 1.1rem;
-  padding: 6px 14px;
+  margin: 0 10px;
+  font-weight: 600;
+}
+
+.search-box {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.search-box input {
+  padding: 10px;
+  width: 80%;
+  max-width: 400px;
   border-radius: 8px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  box-shadow: 0 0 8px transparent;
+  border: none;
+  font-size: 16px;
 }
 
-nav.top-menu a:hover,
-nav.top-menu a.active {
-  background-color: #00adee;
-  color: #121212;
-  box-shadow: 0 0 20px #00adee;
-}
-
-/* Botão do menu lateral */
+/* ☰ Botão de menu lateral */
 .menu-button {
-  font-size: 32px;
+  font-size: 28px;
   background: none;
   border: none;
   color: #00adee;
   cursor: pointer;
   position: absolute;
-  top: 22px;
+  top: 20px;
   right: 20px;
   z-index: 1100;
-  transition: color 0.3s ease;
-}
-
-.menu-button:hover {
-  color: #008bb5;
-}
-
-/* Barra de pesquisa */
-.search-box {
-  margin: 25px auto 40px;
-  text-align: center;
-}
-
-.search-box input {
-  padding: 14px 20px;
-  width: 80%;
-  max-width: 450px;
-  border-radius: 50px;
-  border: none;
-  font-size: 18px;
-  outline: none;
-  box-shadow: 0 0 15px #00adee88;
-  background-color: #222;
-  color: #eee;
-  transition: box-shadow 0.3s ease;
-}
-
-.search-box input::placeholder {
-  color: #666;
-}
-
-.search-box input:focus {
-  box-shadow: 0 0 30px #00adee;
 }
 
 /* Menu lateral */
@@ -107,13 +69,11 @@ nav.top-menu a.active {
   left: -250px;
   width: 250px;
   height: 100%;
-  background-color: #111;
+  background-color: #222;
   padding-top: 60px;
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.8);
-  transition: left 0.35s ease;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.7);
+  transition: left 0.3s ease;
   z-index: 1050;
-  border-right: 3px solid #00adee;
-  backdrop-filter: blur(6px);
 }
 
 .sidebar ul {
@@ -123,8 +83,7 @@ nav.top-menu a.active {
 }
 
 .sidebar ul li {
-  padding: 18px 24px;
-  border-bottom: 1px solid #222;
+  padding: 15px 20px;
 }
 
 .sidebar ul li a {
@@ -132,13 +91,12 @@ nav.top-menu a.active {
   text-decoration: none;
   font-weight: 600;
   display: block;
-  font-size: 1.05rem;
-  transition: background-color 0.25s ease;
+  transition: background-color 0.2s;
 }
 
 .sidebar ul li a:hover {
-  background-color: #002d49;
-  border-radius: 6px;
+  background-color: #333;
+  border-radius: 5px;
 }
 
 /* Botão fechar lateral */
@@ -146,17 +104,12 @@ nav.top-menu a.active {
   position: absolute;
   top: 15px;
   right: 15px;
-  font-size: 26px;
+  font-size: 24px;
   background: none;
   border: none;
   color: #00adee;
   cursor: pointer;
   z-index: 1100;
-  transition: color 0.3s ease;
-}
-
-.close-button:hover {
-  color: #008bb5;
 }
 
 /* Conteúdo principal */
@@ -165,149 +118,95 @@ main {
   flex-wrap: wrap;
   justify-content: center;
   padding: 20px;
-  gap: 25px;
-  min-height: 80vh;
-  background: linear-gradient(180deg, transparent, #111 90%);
+  gap: 20px;
 }
 
-/* Card do filme */
-.filme-card {
-  background: linear-gradient(145deg, #222, #111);
-  border: 1px solid #004f7a;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 173, 238, 0.4);
-  padding: 20px;
-  width: 320px;
-  color: #eee;
+.filme, .card {
+  background-color: #1c1c1c;
+  border: 1px solid #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  width: 300px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  backdrop-filter: contrast(120%) brightness(90%);
-  cursor: default;
-  user-select: none;
-  overflow: hidden;
+  color: #fff;
+  transition: transform 0.2s;
 }
 
-.filme-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 20px 40px rgba(0, 173, 238, 0.8);
+.filme:hover, .card:hover {
+  transform: scale(1.03);
 }
 
-/* Título do filme */
-.filme-card h2 {
-  font-size: 1.5rem;
-  margin-bottom: 18px;
-  text-shadow: 0 0 12px #00adee;
-  font-weight: 800;
-  letter-spacing: 1.5px;
+.filme h2, .card h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
-/* Wrapper do iframe para controle responsivo */
-.video-wrapper {
-  position: relative;
+.filme iframe, .card iframe {
   width: 100%;
-  padding-bottom: 56.25%; /* 16:9 ratio */
-  height: 0;
-  margin-bottom: 20px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 173, 238, 0.5);
-  background-color: #000;
-}
-
-.video-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  height: 170px;
   border: none;
-}
-
-/* Botão favorito */
-.favorito-btn {
-  background-color: #00adee;
-  color: #121212;
-  border: none;
-  padding: 12px 26px;
-  font-size: 1.1rem;
-  border-radius: 50px;
-  font-weight: 700;
-  box-shadow: 0 6px 15px #00adeeaa;
-  cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.4s ease;
-}
-
-.favorito-btn:hover {
-  background-color: #008bb5;
-  box-shadow: 0 8px 25px #008bb5cc;
-}
-
-/* Botão voltar */
-.btn-back-container {
-  width: 100%;
-  text-align: center;
-  margin-top: 35px;
-  margin-bottom: 50px;
-}
-
-.btn-back {
-  background: none;
-  border: 2px solid #00adee;
-  color: #00adee;
-  font-size: 1.25rem;
-  padding: 10px 30px;
-  border-radius: 35px;
-  cursor: pointer;
-  font-weight: 700;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  box-shadow: 0 0 10px transparent;
-}
-
-.btn-back:hover {
-  background-color: #00adee;
-  color: #121212;
-  box-shadow: 0 0 25px #00adee;
+  border-radius: 6px;
 }
 
 /* Rodapé */
 footer {
   text-align: center;
-  background-color: #121212dd;
-  padding: 22px 15px;
-  font-size: 0.9rem;
-  border-top: 2px solid #00adee;
-  color: #aaa;
+  background-color: #222;
+  padding: 20px;
+  margin-top: 40px;
 }
 
 footer a {
   color: #00adee;
   text-decoration: none;
-  margin: 0 8px;
-  transition: color 0.3s ease;
+  margin: 0 5px;
 }
 
-footer a:hover {
-  color: #008bb5;
+/* === Página Sobre === */
+.sobre-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background-color: #1c1c1c;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  line-height: 1.8;
 }
 
-/* === Responsivo === */
+.sobre-container h2 {
+  color: #00adee;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.sobre-container p {
+  font-size: 16px;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+/* === 📱 Responsivo === */
 @media (max-width: 768px) {
-  .filme-card {
+  .filme, .card {
     width: 90%;
   }
-  
+
   .search-box input {
     width: 95%;
   }
 
-  .menu-button {
-    font-size: 28px;
-    top: 18px;
-    right: 15px;
+  /* ✅ Não esconda o top-menu em celular */
+  nav.top-menu {
+    display: flex;
+  }
+
+  .sobre-container {
+    padding: 20px 15px;
   }
 }
 
-/* Desktop: menu lateral fixo */
+/* === 💻 Desktop: mostra o menu lateral fixo === */
 @media (min-width: 769px) {
   .sidebar {
     left: 0;
@@ -317,3 +216,52 @@ footer a:hover {
     margin-left: 250px;
   }
 }
+
+/* === Formulários: Contato e Sugestão === */
+form {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #1c1c1c;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #00adee;
+}
+
+form input,
+form textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  resize: vertical;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+form textarea {
+  height: 120px;
+}
+
+form button[type="submit"] {
+  background-color: #00adee;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button[type="submit"]:hover {
+  background-color: #008bb5;
+  }
