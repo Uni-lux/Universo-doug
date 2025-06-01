@@ -1,52 +1,23 @@
 /* === Estilos Gerais === */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   margin: 0;
   background-color: #111;
   color: #fff;
 }
 
 header {
-  background-color: #222;
+  background-color: #1a1a1a;
   padding: 20px;
   text-align: center;
   position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 header h1 {
   margin: 0;
-}
-
-/* ✅ Sempre mostrar menu topo */
-nav.top-menu {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
-  background-color: #222;
-  padding: 10px 0;
-}
-
-nav.top-menu a {
+  font-size: 28px;
   color: #00adee;
-  text-decoration: none;
-  margin: 0 10px;
-  font-weight: 600;
-}
-
-.search-box {
-  margin: 20px auto;
-  text-align: center;
-}
-
-.search-box input {
-  padding: 10px;
-  width: 80%;
-  max-width: 400px;
-  border-radius: 8px;
-  border: none;
-  font-size: 16px;
 }
 
 /* ☰ Botão de menu lateral */
@@ -62,16 +33,59 @@ nav.top-menu a {
   z-index: 1100;
 }
 
-/* Menu lateral */
+/* Menu topo */
+nav.top-menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 15px;
+  padding: 10px;
+}
+
+nav.top-menu a {
+  background-color: #222;
+  color: #00adee;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav.top-menu a:hover {
+  background-color: #00adee;
+  color: #111;
+}
+
+/* 🔍 Barra de pesquisa */
+.search-box {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.search-box input {
+  padding: 10px 15px;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 30px;
+  border: none;
+  font-size: 16px;
+  background-color: #222;
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 173, 238, 0.1);
+}
+
+/* 🧭 Menu Lateral */
 .sidebar {
   position: fixed;
   top: 0;
   left: -250px;
   width: 250px;
   height: 100%;
-  background-color: #222;
+  background-color: #1c1c1c;
   padding-top: 60px;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.7);
+  box-shadow: 2px 0 8px rgba(0,0,0,0.7);
   transition: left 0.3s ease;
   z-index: 1050;
 }
@@ -91,15 +105,14 @@ nav.top-menu a {
   text-decoration: none;
   font-weight: 600;
   display: block;
+  border-radius: 6px;
   transition: background-color 0.2s;
 }
 
 .sidebar ul li a:hover {
   background-color: #333;
-  border-radius: 5px;
 }
 
-/* Botão fechar lateral */
 .close-button {
   position: absolute;
   top: 15px;
@@ -109,52 +122,87 @@ nav.top-menu a {
   border: none;
   color: #00adee;
   cursor: pointer;
-  z-index: 1100;
 }
 
-/* Conteúdo principal */
+/* 🎬 Cards de Filmes */
 main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 20px;
-  gap: 20px;
+  padding: 30px 20px;
+  gap: 30px;
 }
 
-.filme, .card {
-  background-color: #1c1c1c;
+.card {
+  background-color: #1e1e1e;
   border: 1px solid #333;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  padding: 15px;
-  width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  padding: 20px;
+  width: 320px;
   text-align: center;
-  color: #fff;
-  transition: transform 0.2s;
+  transition: transform 0.3s;
 }
 
-.filme:hover, .card:hover {
+.card:hover {
   transform: scale(1.03);
 }
 
-.filme h2, .card h2 {
-  font-size: 18px;
-  margin-bottom: 10px;
+.card h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #00adee;
 }
 
-.filme iframe, .card iframe {
+.card iframe {
   width: 100%;
-  height: 170px;
+  height: 180px;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
+  margin-bottom: 15px;
 }
 
-/* Rodapé */
+/* ❤ Botão Favorito */
+.favorito-btn {
+  background-color: #00adee;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.favorito-btn:hover {
+  background-color: #008bb5;
+}
+
+/* 🔙 Botão Voltar */
+main button {
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+main button:hover {
+  background-color: #666;
+}
+
+/* 🔻 Rodapé */
 footer {
   text-align: center;
-  background-color: #222;
+  background-color: #1a1a1a;
   padding: 20px;
   margin-top: 40px;
+  font-size: 14px;
+  color: #aaa;
 }
 
 footer a {
@@ -163,32 +211,9 @@ footer a {
   margin: 0 5px;
 }
 
-/* === Página Sobre === */
-.sobre-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  background-color: #1c1c1c;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
-  line-height: 1.8;
-}
-
-.sobre-container h2 {
-  color: #00adee;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.sobre-container p {
-  font-size: 16px;
-  margin-bottom: 15px;
-  text-align: justify;
-}
-
-/* === 📱 Responsivo === */
+/* 📱 Responsivo */
 @media (max-width: 768px) {
-  .filme, .card {
+  .card {
     width: 90%;
   }
 
@@ -196,17 +221,12 @@ footer a {
     width: 95%;
   }
 
-  /* ✅ Não esconda o top-menu em celular */
   nav.top-menu {
-    display: flex;
-  }
-
-  .sobre-container {
-    padding: 20px 15px;
+    flex-direction: column;
   }
 }
 
-/* === 💻 Desktop: mostra o menu lateral fixo === */
+/* 💻 Exibir menu lateral fixo em telas largas */
 @media (min-width: 769px) {
   .sidebar {
     left: 0;
@@ -215,53 +235,4 @@ footer a {
   main {
     margin-left: 250px;
   }
-}
-
-/* === Formulários: Contato e Sugestão === */
-form {
-  max-width: 500px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #1c1c1c;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-form label {
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #00adee;
-}
-
-form input,
-form textarea {
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  font-size: 16px;
-  resize: vertical;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-form textarea {
-  height: 120px;
-}
-
-form button[type="submit"] {
-  background-color: #00adee;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 12px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-form button[type="submit"]:hover {
-  background-color: #008bb5;
-}
+  }
