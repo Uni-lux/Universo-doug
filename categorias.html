@@ -1,25 +1,114 @@
-<!-- categorias.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Categorias</title>
+  <title>Categorias - Filmes & Séries</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .categorias-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px;
+      background: linear-gradient(145deg, #1c1c1c, #2a2a2a);
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 196, 0, 0.3);
+    }
+
+    .categorias-container h2 {
+      text-align: center;
+      color: #ffc400;
+      font-size: 28px;
+      margin-bottom: 25px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    }
+
+    .categoria-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .categoria-card {
+      background-color: #1c1c1c;
+      border: 1px solid #333;
+      border-left: 5px solid #ffc400;
+      border-radius: 10px;
+      padding: 20px;
+      color: #f0f0f0;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .categoria-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(255, 196, 0, 0.4);
+    }
+
+    .categoria-card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      color: #ffc400;
+    }
+
+    .categoria-card p {
+      font-size: 14px;
+      color: #ccc;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>Categorias</h1>
+    <h1>Filmes & Séries</h1>
+    <button id="menuToggle" class="menu-button">☰</button>
+    <nav class="top-menu">
+      <a href="index.html">Início</a>
+      <a href="filmes.html">Filmes</a>
+      <a href="series.html">Séries</a>
+      <a href="sugestao.html">Sugerir</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Pesquisar categorias..." />
+    </div>
   </header>
-  <main>
+
+  <aside id="sidebar" class="sidebar">
+    <button id="closeSidebar" class="close-button">✖</button>
     <ul>
-      <li>Ação</li>
-      <li>Comédia</li>
-      <li>Drama</li>
-      <li>Suspense</li>
-      <li>Romance</li>
-      <li>Terror</li>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="sugestao.html">Sugerir um Filme</a></li>
+      <li><a href="lançamentos.html">Lançamentos</a></li>
+      <li><a href="categorias.html">Categorias</a></li>
+      <li><a href="favoritos.html">Minha Lista</a></li>
+      <li><a href="novidades.html">Novidades</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="ajuda.html">Ajuda</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="login.html">Entrar</a></li>
     </ul>
-  </main>
-</body>
-</html>
+  </aside>
+
+  <main>
+    <div class="categorias-container">
+      <h2>🎬 Navegue por Categorias</h2>
+      <div class="categoria-grid">
+        <div class="categoria-card">
+          <h3>Ação</h3>
+          <p>Filmes e séries eletrizantes com muita adrenalina e aventura.</p>
+        </div>
+        <div class="categoria-card">
+          <h3>Comédia</h3>
+          <p>Ria sem parar com os melhores títulos de humor e diversão.</p>
+        </div>
+        <div class="categoria-card">
+          <h3>Drama</h3>
+          <p>Histórias profundas, emocionantes e envolventes.</p>
+        </div>
+        <div class="categoria-card">
+          <h3>Ficção Científica</h3>
+          <p>Viaje para o futuro e explore mundos além da imaginação.</p>
+        </div>
+        <div class="categoria-card">
+          <h3>Terror</h3>
+          <p>Prepare-se para sustos, tensão
