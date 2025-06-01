@@ -1,19 +1,86 @@
-<!-- ajuda.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ajuda</title>
+  <title>Ajuda - Filmes & Séries</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>Central de Ajuda</h1>
+    <h1>Filmes & Séries</h1>
+    <button id="menuToggle" class="menu-button">☰</button>
+    <nav class="top-menu">
+      <a href="inicio.html">Início</a>
+      <a href="filmes.html">Filmes</a>
+      <a href="series.html">Séries</a>
+      <a href="sugestao.html">Sugerir</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Pesquisar filmes ou séries..." />
+    </div>
   </header>
+
+  <aside id="sidebar" class="sidebar">
+    <button id="closeSidebar" class="close-button">✖</button>
+    <ul>
+      <li><a href="inicio.html">Início</a></li>
+      <li><a href="sugestao.html">Sugerir um Filme</a></li>
+      <li><a href="lançamentos.html">Lançamentos</a></li>
+      <li><a href="categorias.html">Categorias</a></li>
+      <li><a href="favoritos.html">Minha Lista</a></li>
+      <li><a href="novidades.html">Novidades</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="ajuda.html">Ajuda</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="login.html">Entrar</a></li>
+    </ul>
+  </aside>
+
   <main>
-    <p>Se você estiver enfrentando problemas para assistir aos vídeos, verifique sua conexão com a internet e atualize a página.</p>
-    <p>Para outras dúvidas, entre em <a href="contato.html">contato conosco</a>.</p>
+    <div class="sobre-container">
+      <h2>Ajuda</h2>
+      <p>Se você está com dificuldades para usar o site, veja abaixo algumas dicas:</p>
+      <ul>
+        <li>🔍 Use a barra de pesquisa para encontrar filmes e séries rapidamente.</li>
+        <li>📌 Use o botão ❤ para favoritar títulos e acessar depois em "Minha Lista".</li>
+        <li>📧 Caso tenha problemas ou sugestões, vá até a página <a href="contato.html">Contato</a>.</li>
+        <li>👤 Para salvar suas preferências, utilize a opção de <a href="login.html">Entrar</a>.</li>
+        <li>🆕 Acompanhe a seção "Novidades" para ver os lançamentos mais recentes.</li>
+      </ul>
+    </div>
   </main>
+
+  <footer>
+    <p>&copy; 2025 - Todos os direitos reservados</p>
+    <a href="privacidade.html">Política de Privacidade</a> |
+    <a href="termos.html">Termos de Uso</a>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const sidebar = document.getElementById("sidebar");
+    const closeSidebar = document.getElementById("closeSidebar");
+
+    menuToggle.addEventListener("click", () => {
+      sidebar.style.left = "0";
+    });
+
+    closeSidebar.addEventListener("click", () => {
+      sidebar.style.left = "-250px";
+    });
+
+    const searchInput = document.getElementById("searchInput");
+    searchInput.addEventListener("keyup", function () {
+      const searchTerm = searchInput.value.toLowerCase();
+      const cards = document.querySelectorAll(".card");
+
+      cards.forEach((card) => {
+        const title = card.querySelector("h2").textContent.toLowerCase();
+        card.style.display = title.includes(searchTerm) ? "block" : "none";
+      });
+    });
+  </script>
 </body>
 </html>
