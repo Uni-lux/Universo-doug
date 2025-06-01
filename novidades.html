@@ -5,11 +5,99 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Novidades - Filmes & Séries</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0f0f0f;
+      color: #f0f0f0;
+      margin: 0;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #00adee;
+    }
+
+    nav.top-menu {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    nav.top-menu a {
+      color: #00adee;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+
+    nav.top-menu a:hover {
+      background-color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #1c1c1c;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+
+    .container h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #00adee;
+    }
+
+    .update {
+      border-left: 4px solid #00adee;
+      padding-left: 15px;
+      margin-bottom: 20px;
+    }
+
+    .update span.date {
+      display: block;
+      font-size: 14px;
+      color: #aaa;
+      margin-bottom: 5px;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #1a1a1a;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #00adee;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
+
   <header>
     <h1>Filmes & Séries</h1>
-    <button id="menuToggle" class="menu-button">☰</button>
     <nav class="top-menu">
       <a href="index.html">Início</a>
       <a href="filmes.html">Filmes</a>
@@ -17,46 +105,34 @@
       <a href="sugestao.html">Sugerir</a>
       <a href="contato.html">Contato</a>
     </nav>
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Pesquisar filmes ou séries..." />
-    </div>
   </header>
 
-  <aside id="sidebar" class="sidebar">
-    <button id="closeSidebar" class="close-button">✖</button>
-    <ul>
-      <li><a href="index.html">Início</a></li>
-      <li><a href="sugestao.html">Sugerir um Filme</a></li>
-      <li><a href="lançamentos.html">Lançamentos</a></li>
-      <li><a href="categorias.html">Categorias</a></li>
-      <li><a href="favoritos.html">Minha Lista</a></li>
-      <li><a href="novidades.html">Novidades</a></li>
-      <li><a href="sobre.html">Sobre</a></li>
-      <li><a href="ajuda.html">Ajuda</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="login.html">Entrar</a></li>
-    </ul>
-  </aside>
+  <main class="container">
+    <h2>Últimas Novidades</h2>
 
-  <main>
-    <div class="sobre-container">
-      <h2>Novidades do Site</h2>
+    <div class="update">
+      <span class="date">Maio 2025</span>
+      Nova interface lançada com visual moderno, navegação rápida e layout aprimorado.
+    </div>
 
-      <p>
-        Fique por dentro das últimas atualizações e melhorias que fizemos para oferecer a melhor experiência possível. Abaixo, você confere um resumo de tudo que já foi implementado até agora na nossa plataforma.
-      </p>
+    <div class="update">
+      <span class="date">Abril 2025</span>
+      Sistema de favoritos adicionado. Agora você pode salvar seus filmes e séries preferidos.
+    </div>
 
-      <ul>
-        <li><strong>[Maio/2025]</strong> — Nova interface lançada com visual mais moderno e navegação otimizada.</li>
-        <li><strong>[Abril/2025]</strong> — Sistema de favoritos adicionado com armazenamento local no navegador.</li>
-        <li><strong>[Março/2025]</strong> — Novo formulário de sugestões para filmes e séries adicionado.</li>
-        <li><strong>[Fevereiro/2025]</strong> — Páginas "Sobre", "Ajuda" e "FAQ" integradas para suporte ao usuário.</li>
-        <li><strong>[Janeiro/2025]</strong> — Lançamento oficial da plataforma com catálogo gratuito de filmes e séries.</li>
-      </ul>
+    <div class="update">
+      <span class="date">Março 2025</span>
+      Formulário de sugestões melhorado para receber mais feedback dos usuários.
+    </div>
 
-      <p>
-        Estamos constantemente trabalhando em melhorias. Fique atento às próximas atualizações e novas funcionalidades. Sua opinião é muito importante para nós!
-      </p>
+    <div class="update">
+      <span class="date">Fevereiro 2025</span>
+      Seções "Ajuda", "Sobre" e "FAQ" criadas para melhorar o suporte ao usuário.
+    </div>
+
+    <div class="update">
+      <span class="date">Janeiro 2025</span>
+      Lançamento oficial do site com conteúdo gratuito e acessível a todos.
     </div>
   </main>
 
@@ -66,29 +142,5 @@
     <a href="termos.html">Termos de Uso</a>
   </footer>
 
-  <script>
-    const menuToggle = document.getElementById("menuToggle");
-    const sidebar = document.getElementById("sidebar");
-    const closeSidebar = document.getElementById("closeSidebar");
-
-    menuToggle.addEventListener("click", () => {
-      sidebar.style.left = "0";
-    });
-
-    closeSidebar.addEventListener("click", () => {
-      sidebar.style.left = "-250px";
-    });
-
-    const searchInput = document.getElementById("searchInput");
-    searchInput.addEventListener("keyup", function () {
-      const searchTerm = searchInput.value.toLowerCase();
-      const cards = document.querySelectorAll(".card");
-
-      cards.forEach((card) => {
-        const title = card.querySelector("h2").textContent.toLowerCase();
-        card.style.display = title.includes(searchTerm) ? "block" : "none";
-      });
-    });
-  </script>
 </body>
 </html>
