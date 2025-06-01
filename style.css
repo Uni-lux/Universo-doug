@@ -1,103 +1,119 @@
-/* === Variáveis de Cores === */
-:root {
-  --bg-primario: #0f0f0f;
-  --bg-secundario: #1b1b1b;
-  --cor-destaque: #00adee;
-  --cor-hover: #292929;
-  --cor-texto: #f1f1f1;
-  --sombra: rgba(0, 0, 0, 0.6);
-}
-
 /* === Estilos Gerais === */
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  background-color: var(--bg-primario);
-  color: var(--cor-texto);
+  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+  color: #eee;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* === Cabeçalho === */
 header {
-  background-color: var(--bg-secundario);
+  background-color: #121212cc;
   padding: 20px;
   text-align: center;
   position: relative;
-  box-shadow: 0 2px 6px var(--sombra);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  border-bottom: 2px solid #00adee;
 }
 
 header h1 {
   margin: 0;
-  font-size: 28px;
-  color: var(--cor-destaque);
-  letter-spacing: 1px;
+  font-size: 2.8rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: #00adee;
+  text-shadow: 0 0 15px #00adee;
 }
 
-/* === Menu Topo === */
+/* Menu topo */
 nav.top-menu {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 15px;
-  background-color: #141414;
-  padding: 12px 0;
-  margin-top: 10px;
-  box-shadow: 0 2px 5px var(--sombra);
+  gap: 20px;
+  margin-top: 15px;
+  background-color: transparent;
 }
 
 nav.top-menu a {
-  color: var(--cor-destaque);
+  color: #00adee;
   text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 6px 14px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 0 8px transparent;
 }
 
-nav.top-menu a:hover {
-  color: #fff;
+nav.top-menu a:hover,
+nav.top-menu a.active {
+  background-color: #00adee;
+  color: #121212;
+  box-shadow: 0 0 20px #00adee;
 }
 
-/* === Barra de Pesquisa === */
+/* Botão do menu lateral */
+.menu-button {
+  font-size: 32px;
+  background: none;
+  border: none;
+  color: #00adee;
+  cursor: pointer;
+  position: absolute;
+  top: 22px;
+  right: 20px;
+  z-index: 1100;
+  transition: color 0.3s ease;
+}
+
+.menu-button:hover {
+  color: #008bb5;
+}
+
+/* Barra de pesquisa */
 .search-box {
-  margin: 20px auto;
+  margin: 25px auto 40px;
   text-align: center;
 }
 
 .search-box input {
-  padding: 12px 16px;
+  padding: 14px 20px;
   width: 80%;
-  max-width: 420px;
-  border-radius: 10px;
+  max-width: 450px;
+  border-radius: 50px;
   border: none;
-  font-size: 16px;
-  background-color: #1a1a1a;
-  color: #fff;
-  box-shadow: 0 0 10px rgba(0, 173, 238, 0.1);
+  font-size: 18px;
+  outline: none;
+  box-shadow: 0 0 15px #00adee88;
+  background-color: #222;
+  color: #eee;
+  transition: box-shadow 0.3s ease;
 }
 
-/* === Botão Menu Lateral ☰ === */
-.menu-button {
-  font-size: 28px;
-  background: none;
-  border: none;
-  color: var(--cor-destaque);
-  cursor: pointer;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 1100;
+.search-box input::placeholder {
+  color: #666;
 }
 
-/* === Menu Lateral === */
+.search-box input:focus {
+  box-shadow: 0 0 30px #00adee;
+}
+
+/* Menu lateral */
 .sidebar {
   position: fixed;
   top: 0;
   left: -250px;
   width: 250px;
   height: 100%;
-  background-color: var(--bg-secundario);
+  background-color: #111;
   padding-top: 60px;
-  box-shadow: 2px 0 6px var(--sombra);
-  transition: left 0.3s ease;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.8);
+  transition: left 0.35s ease;
   z-index: 1050;
+  border-right: 3px solid #00adee;
+  backdrop-filter: blur(6px);
 }
 
 .sidebar ul {
@@ -107,141 +123,191 @@ nav.top-menu a:hover {
 }
 
 .sidebar ul li {
-  padding: 15px 20px;
+  padding: 18px 24px;
+  border-bottom: 1px solid #222;
 }
 
 .sidebar ul li a {
-  color: var(--cor-destaque);
+  color: #00adee;
   text-decoration: none;
   font-weight: 600;
   display: block;
-  transition: background-color 0.2s;
+  font-size: 1.05rem;
+  transition: background-color 0.25s ease;
 }
 
 .sidebar ul li a:hover {
-  background-color: var(--cor-hover);
+  background-color: #002d49;
   border-radius: 6px;
 }
 
-/* === Botão Fechar Menu Lateral ✖ === */
+/* Botão fechar lateral */
 .close-button {
   position: absolute;
   top: 15px;
   right: 15px;
-  font-size: 24px;
+  font-size: 26px;
   background: none;
   border: none;
-  color: var(--cor-destaque);
+  color: #00adee;
   cursor: pointer;
+  z-index: 1100;
+  transition: color 0.3s ease;
 }
 
-/* === Conteúdo Principal === */
+.close-button:hover {
+  color: #008bb5;
+}
+
+/* Conteúdo principal */
 main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 30px 20px;
-  gap: 25px;
-}
-
-/* === Cards de Filme === */
-.card {
-  background: linear-gradient(145deg, #1c1c1c, #111);
-  border: 1px solid #2a2a2a;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
   padding: 20px;
-  width: 300px;
+  gap: 25px;
+  min-height: 80vh;
+  background: linear-gradient(180deg, transparent, #111 90%);
+}
+
+/* Card do filme */
+.filme-card {
+  background: linear-gradient(145deg, #222, #111);
+  border: 1px solid #004f7a;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 173, 238, 0.4);
+  padding: 20px;
+  width: 320px;
+  color: #eee;
   text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: contrast(120%) brightness(90%);
+  cursor: default;
+  user-select: none;
+  overflow: hidden;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+.filme-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 173, 238, 0.8);
 }
 
-.card h2 {
-  font-size: 20px;
-  margin-bottom: 15px;
-  color: var(--cor-destaque);
+/* Título do filme */
+.filme-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 18px;
+  text-shadow: 0 0 12px #00adee;
+  font-weight: 800;
+  letter-spacing: 1.5px;
 }
 
-.card iframe {
+/* Wrapper do iframe para controle responsivo */
+.video-wrapper {
+  position: relative;
   width: 100%;
-  height: 170px;
-  border: none;
-  border-radius: 8px;
-  margin-bottom: 15px;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 173, 238, 0.5);
+  background-color: #000;
 }
 
-/* === Botão Favoritar ❤ === */
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Botão favorito */
 .favorito-btn {
-  background-color: transparent;
-  border: 2px solid var(--cor-destaque);
-  color: var(--cor-destaque);
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 15px;
+  background-color: #00adee;
+  color: #121212;
+  border: none;
+  padding: 12px 26px;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  font-weight: 700;
+  box-shadow: 0 6px 15px #00adeeaa;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.4s ease;
 }
 
 .favorito-btn:hover {
-  background-color: var(--cor-destaque);
-  color: #000;
+  background-color: #008bb5;
+  box-shadow: 0 8px 25px #008bb5cc;
 }
 
-/* === Botão Voltar 🔙 === */
-button[onclick="history.back()"] {
-  margin-top: 40px;
-  padding: 10px 20px;
-  background-color: var(--cor-destaque);
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  color: #000;
+/* Botão voltar */
+.btn-back-container {
+  width: 100%;
+  text-align: center;
+  margin-top: 35px;
+  margin-bottom: 50px;
+}
+
+.btn-back {
+  background: none;
+  border: 2px solid #00adee;
+  color: #00adee;
+  font-size: 1.25rem;
+  padding: 10px 30px;
+  border-radius: 35px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  font-weight: 700;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 0 10px transparent;
 }
 
-button[onclick="history.back()"]:hover {
-  background-color: #0094c2;
+.btn-back:hover {
+  background-color: #00adee;
+  color: #121212;
+  box-shadow: 0 0 25px #00adee;
 }
 
-/* === Rodapé === */
+/* Rodapé */
 footer {
   text-align: center;
-  background-color: var(--bg-secundario);
-  padding: 20px;
-  margin-top: 40px;
-  font-size: 14px;
+  background-color: #121212dd;
+  padding: 22px 15px;
+  font-size: 0.9rem;
+  border-top: 2px solid #00adee;
   color: #aaa;
 }
 
 footer a {
-  color: var(--cor-destaque);
+  color: #00adee;
   text-decoration: none;
-  margin: 0 5px;
+  margin: 0 8px;
+  transition: color 0.3s ease;
 }
 
-/* === Responsivo 📱 === */
+footer a:hover {
+  color: #008bb5;
+}
+
+/* === Responsivo === */
 @media (max-width: 768px) {
-  .card {
+  .filme-card {
     width: 90%;
   }
-
+  
   .search-box input {
     width: 95%;
   }
 
-  nav.top-menu {
-    display: flex;
+  .menu-button {
+    font-size: 28px;
+    top: 18px;
+    right: 15px;
   }
 }
 
-/* === Menu lateral fixo em desktop === */
+/* Desktop: menu lateral fixo */
 @media (min-width: 769px) {
   .sidebar {
     left: 0;
