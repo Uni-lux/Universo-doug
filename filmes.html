@@ -28,7 +28,7 @@
     .logo {
       font-size: 26px;
       font-weight: 700;
-      color: #007bff;
+      color: #00adee; /* azul customizado */
       user-select: none;
     }
 
@@ -45,13 +45,14 @@
       border-radius: 25px;
       background-color: #111;
       border: 1px solid transparent;
-      transition: background-color 0.3s, border-color 0.3s;
+      transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
     }
 
     nav a:hover {
-      background-color: #007bff;
-      border-color: #007bff;
+      background-color: #00adee;
+      border-color: #00adee;
       color: #fff;
+      box-shadow: 0 0 8px #00adeeaa;
     }
 
     .search-box {
@@ -85,7 +86,7 @@
 
     .container h2 {
       margin-bottom: 20px;
-      color: #007bff;
+      color: #00adee;
     }
 
     .card {
@@ -93,18 +94,18 @@
       padding: 15px;
       margin-bottom: 20px;
       border-radius: 12px;
-      border-left: 5px solid #007bff;
-      transition: 0.3s;
+      border-left: 5px solid #00adee;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card:hover {
       transform: scale(1.01);
-      box-shadow: 0 0 12px rgba(0, 123, 255, 0.4);
+      box-shadow: 0 0 12px #00adee88;
     }
 
     .card h3 {
       margin-top: 0;
-      color: #007bff;
+      color: #00adee;
       font-size: 20px;
     }
 
@@ -188,12 +189,13 @@
 </footer>
 
 <script>
+  // Busca dinâmica por título dos filmes
   const searchInput = document.getElementById("searchInput");
-  searchInput.addEventListener("input", function () {
+  searchInput.addEventListener("input", () => {
     const searchTerm = searchInput.value.toLowerCase();
     const cards = document.querySelectorAll(".card");
 
-    cards.forEach((card) => {
+    cards.forEach(card => {
       const title = card.querySelector("h3").textContent.toLowerCase();
       card.style.display = title.includes(searchTerm) ? "block" : "none";
     });
