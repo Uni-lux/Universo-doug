@@ -3,75 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>animação - filmes & séries</title>
+  <title>Animação - Filmes & Séries</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     body {
       background-color: #0d0d0d;
       color: #fff;
       font-family: Arial, sans-serif;
+      padding: 20px;
       max-width: 900px;
       margin: 40px auto;
-      padding: 0 20px;
     }
     h1 {
       color: #00adee;
       text-align: center;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-      text-transform: lowercase;
     }
-
-    .btn-voltar {
-      display: inline-block;
-      padding: 12px 28px;
-      background: linear-gradient(135deg, #007acc, #00adee);
-      color: white;
-      font-weight: 600;
-      font-size: 16px;
-      text-decoration: none;
-      border-radius: 30px;
-      box-shadow: 0 4px 15px rgba(0, 173, 238, 0.5);
-      transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
-      border: none;
-      cursor: pointer;
-      user-select: none;
-      text-align: center;
-      letter-spacing: 0.03em;
-      margin-bottom: 30px;
-    }
-    .btn-voltar:hover,
-    .btn-voltar:focus {
-      background: linear-gradient(135deg, #0099ee, #00c5ff);
-      box-shadow: 0 6px 20px rgba(0, 205, 255, 0.7);
-      transform: translateY(-3px);
-      outline: none;
-    }
-    .btn-voltar:active {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(0, 173, 238, 0.6);
-    }
-
     p {
       font-size: 16px;
       line-height: 1.6;
-      color: #ddd;
-      max-width: 720px;
-      margin: 0 auto;
+      color: #ccc;
+      text-align: center;
+    }
+    a {
+      color: #00adee;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 30px;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: 2px solid #00adee;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 173, 238, 0.6);
+      transition: background-color 0.3s, color 0.3s;
+    }
+    a:hover {
+      background-color: #00adee;
+      color: #0d0d0d;
+      box-shadow: 0 0 15px rgba(0, 173, 238, 0.9);
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-
   <h1>🎨 animação</h1>
-
-  <a href="categorias.html" class="btn-voltar" aria-label="Voltar para categorias">← voltar para categorias</a>
-
-  <p>
-    Entretenimento divertido para todas as idades. Filmes e séries animados com histórias incríveis, personagens carismáticos e muita criatividade para você aproveitar.
-  </p>
-
-  <!-- Aqui você pode adicionar cards ou lista dos filmes/séries da categoria animação -->
-
+  <p>Entretenimento divertido para todas as idades.</p>
+  <a href="categorias.html">← voltar para categorias</a>
 </body>
 </html>
