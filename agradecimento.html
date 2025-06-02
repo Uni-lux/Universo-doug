@@ -9,24 +9,28 @@
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #111;
-      color: #ffc400;
+      color: white;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       text-align: center;
       padding: 20px;
     }
+
     h1 {
       font-size: 2.5rem;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      color: #ffc400;
     }
+
     p {
       font-size: 1.2rem;
       margin-bottom: 30px;
-      color: #ddd;
+      color: #ccc;
     }
+
     a.button {
       padding: 12px 30px;
       background-color: #ffc400;
@@ -35,22 +39,37 @@
       border-radius: 30px;
       font-weight: bold;
       font-size: 1.1rem;
-      transition: background-color 0.3s ease;
+      transition: 0.3s ease;
     }
+
     a.button:hover {
       background-color: #e6af00;
     }
+
+    .timer {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: #888;
+    }
   </style>
   <script>
-    // Redireciona para a página inicial após 8 segundos
-    setTimeout(() => {
-      window.location.href = "index.html";
-    }, 8000);
+    let seconds = 8;
+    function updateTimer() {
+      const el = document.getElementById("timer");
+      if (seconds > 0) {
+        el.textContent = `Redirecionando para a página inicial em ${seconds--} segundos...`;
+        setTimeout(updateTimer, 1000);
+      } else {
+        window.location.href = "index.html";
+      }
+    }
+    window.onload = updateTimer;
   </script>
 </head>
 <body>
   <h1>✅ Enviado com Sucesso!</h1>
   <p>Obrigado pela sua sugestão! Vamos analisar com carinho.</p>
   <a href="index.html" class="button">Voltar para o Início</a>
+  <div id="timer" class="timer"></div>
 </body>
 </html>
