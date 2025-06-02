@@ -43,13 +43,15 @@
       padding: 20px;
       color: #fff;
       transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
       text-decoration: none;
+      display: block;
     }
 
-    .categoria-card:hover {
+    .categoria-card:hover,
+    .categoria-card:focus {
       transform: translateY(-5px);
       box-shadow: 0 0 20px rgba(0, 123, 255, 0.4);
+      outline: none;
     }
 
     .categoria-card h3 {
@@ -87,7 +89,7 @@
       <a href="contato.html">Contato</a>
     </nav>
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Pesquisar categorias..." />
+      <input type="text" id="searchInput" placeholder="Pesquisar categorias..." aria-label="Pesquisar categorias" />
     </div>
   </header>
 
@@ -111,38 +113,38 @@
     <div class="categorias-container">
       <h2>🎬 Navegue por Categorias</h2>
       <div class="categoria-grid">
-        <div class="categoria-card">
+        <a href="acao.html" class="categoria-card" tabindex="0" aria-label="Categoria ação - Filmes e séries eletrizantes com muita adrenalina e aventura">
           <h3>🔥 Ação</h3>
           <p>Filmes e séries eletrizantes com muita adrenalina e aventura.</p>
-        </div>
-        <div class="categoria-card">
+        </a>
+        <a href="comedia.html" class="categoria-card" tabindex="0" aria-label="Categoria comedia - Ria sem parar com os melhores títulos de humor e diversão">
           <h3>😂 Comédia</h3>
           <p>Ria sem parar com os melhores títulos de humor e diversão.</p>
-        </div>
-        <div class="categoria-card">
+        </a>
+        <a href="drama.html" class="categoria-card" tabindex="0" aria-label="Categoria drama - Histórias profundas, emocionantes e envolventes">
           <h3>🎭 Drama</h3>
           <p>Histórias profundas, emocionantes e envolventes.</p>
-        </div>
-        <div class="categoria-card">
+        </a>
+        <a href="ficcao.html" class="categoria-card" tabindex="0" aria-label="Categoria ficcao cientifica - Viaje para o futuro e explore mundos além da imaginação">
           <h3>🚀 Ficção Científica</h3>
           <p>Viaje para o futuro e explore mundos além da imaginação.</p>
-        </div>
-        <div class="categoria-card">
+        </a>
+        <a href="terror.html" class="categoria-card" tabindex="0" aria-label="Categoria terror - Prepare-se para sustos, tensão e muito suspense">
           <h3>👻 Terror</h3>
           <p>Prepare-se para sustos, tensão e muito suspense.</p>
-        </div>
-        <div class="categoria-card">
+        </a>
+        <a href="romance.html" class="categoria-card" tabindex="0" aria-label="Categoria romance - Histórias apaixonantes que tocam o coração">
           <h3>❤️ Romance</h3>
           <p>Histórias apaixonantes que tocam o coração.</p>
-        </div>
-        <div class="categoria-card">
+        </a>
+        <a href="documentarios.html" class="categoria-card" tabindex="0" aria-label="Categoria documentarios - Conteúdos informativos e reflexivos sobre o mundo real">
           <h3>🎥 Documentários</h3>
           <p>Conteúdos informativos e reflexivos sobre o mundo real.</p>
-        </div>
-        <div class="categoria-card">
+        </a>
+        <a href="animacao.html" class="categoria-card" tabindex="0" aria-label="Categoria animacao - Entretenimento divertido para todas as idades">
           <h3>🎨 Animação</h3>
           <p>Entretenimento divertido para todas as idades.</p>
-        </div>
+        </a>
       </div>
     </div>
   </main>
