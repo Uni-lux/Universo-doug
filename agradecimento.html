@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Obrigado pela sua Sugestão!</title>
+  <title>Mensagem Enviada - Filmes & Séries</title>
   <style>
     body {
       margin: 0;
+      padding: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #111;
       color: white;
@@ -14,7 +15,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
+      height: 100vh;
       text-align: center;
       padding: 20px;
     }
@@ -22,7 +23,7 @@
     h1 {
       font-size: 2.5rem;
       margin-bottom: 15px;
-      color: #ffc400;
+      color: #007bff;
     }
 
     p {
@@ -33,17 +34,17 @@
 
     a.button {
       padding: 12px 30px;
-      background-color: #ffc400;
-      color: #111;
+      background-color: #007bff;
+      color: white;
       text-decoration: none;
       border-radius: 30px;
       font-weight: bold;
       font-size: 1.1rem;
-      transition: 0.3s ease;
+      transition: background-color 0.3s ease;
     }
 
     a.button:hover {
-      background-color: #e6af00;
+      background-color: #005ecb;
     }
 
     .timer {
@@ -57,7 +58,7 @@
     function updateTimer() {
       const el = document.getElementById("timer");
       if (seconds > 0) {
-        el.textContent = `Redirecionando para a página inicial em ${seconds--} segundos...`;
+        el.textContent = `Redirecionando em ${seconds--} segundos...`;
         setTimeout(updateTimer, 1000);
       } else {
         window.location.href = "index.html";
@@ -67,8 +68,8 @@
   </script>
 </head>
 <body>
-  <h1>✅ Enviado com Sucesso!</h1>
-  <p>Obrigado pela sua sugestão! Vamos analisar com carinho.</p>
+  <h1>📩 Mensagem Enviada com Sucesso!</h1>
+  <p>Obrigado pela sugestão! Em breve ela poderá aparecer em nosso catálogo. 😄</p>
   <a href="index.html" class="button">Voltar para o Início</a>
   <div id="timer" class="timer"></div>
 </body>
