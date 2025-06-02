@@ -14,33 +14,46 @@
       max-width: 900px;
       margin: 40px auto;
     }
+
     h1 {
       color: #00adee;
       text-align: center;
       margin-bottom: 20px;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
     }
+
     p {
       font-size: 16px;
       line-height: 1.6;
       color: #ccc;
       text-align: center;
+      margin-bottom: 30px;
     }
-    a {
-      color: #00adee;
+
+    .botao-voltar {
+      display: block;
+      width: fit-content;
+      margin: 0 auto;
+      padding: 12px 25px;
+      background-color: #00adee;
+      color: #fff;
       text-decoration: none;
-      display: inline-block;
-      margin-top: 30px;
+      border-radius: 8px;
       font-weight: bold;
+      transition: background-color 0.3s, transform 0.3s;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 173, 238, 0.3);
     }
-    a:hover {
-      text-decoration: underline;
+
+    .botao-voltar:hover {
+      background-color: #0099cc;
+      transform: translateY(-2px);
     }
   </style>
 </head>
 <body>
   <h1>🔥 Ação</h1>
   <p>Filmes e séries eletrizantes com muita adrenalina e aventura.</p>
-  <a href="categorias.html">← Voltar para categorias</a>
+  <a href="categorias.html" class="botao-voltar">← Voltar para Categorias</a>
 </body>
 </html>
