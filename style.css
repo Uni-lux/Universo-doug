@@ -33,8 +33,24 @@ nav.top-menu a {
   text-decoration: none;
   margin: 0 10px;
   font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 25px;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
+nav.top-menu a:hover {
+  background-color: #00adee33;
+  color: #fff;
+}
+
+/* 🔵 Botão ativo (ex: página atual como Filmes ou Séries) */
+nav.top-menu a.active {
+  background-color: #00adee;
+  color: #fff;
+  box-shadow: 0 0 10px #00adee99;
+}
+
+/* Barra de busca */
 .search-box {
   margin: 20px auto;
   text-align: center;
@@ -123,26 +139,26 @@ main {
 
 /* Cards filmes e séries */
 .filme, .card {
-  background-color: #111;          /* fundo preto escuro */
-  border: 2px solid #00adee;       /* borda azul vibrante */
+  background-color: #111;
+  border: 2px solid #00adee;
   border-radius: 12px;
-  box-shadow: 0 0 15px #00adee88;  /* sombra azul suave */
+  box-shadow: 0 0 15px #00adee88;
   padding: 20px;
   width: 300px;
   text-align: center;
-  color: #fff;                     /* texto branco */
+  color: #fff;
   transition: transform 0.2s, box-shadow 0.3s;
 }
 
 .filme:hover, .card:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 25px #00adeecc; /* sombra mais intensa no hover */
+  box-shadow: 0 0 25px #00adeecc;
 }
 
 .filme h2, .card h2 {
   font-size: 20px;
   margin-bottom: 15px;
-  color: #00adee; /* título azul */
+  color: #00adee;
 }
 
 .filme iframe, .card iframe {
@@ -221,7 +237,6 @@ footer a {
     width: 95%;
   }
 
-  /* ✅ Não esconda o top-menu em celular */
   nav.top-menu {
     display: flex;
   }
