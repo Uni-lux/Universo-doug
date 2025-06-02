@@ -6,6 +6,7 @@ body {
   color: #fff;
 }
 
+/* === Cabeçalho === */
 header {
   background-color: #222;
   padding: 20px;
@@ -17,23 +18,21 @@ header h1 {
   margin: 0;
 }
 
-/* ✅ Sempre mostrar menu topo */
+/* === Menu Topo === */
 nav.top-menu {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 10px;
   background-color: #222;
-  padding: 10px 0;
+  padding: 12px 0;
 }
 
 nav.top-menu a {
   color: #00adee;
   text-decoration: none;
-  margin: 0 10px;
   font-weight: 600;
-  padding: 8px 16px;
+  padding: 10px 20px;
   border-radius: 25px;
   transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
@@ -43,102 +42,36 @@ nav.top-menu a:hover {
   color: #fff;
 }
 
-/* 🔵 Botão ativo (ex: página atual como Filmes ou Séries) */
 nav.top-menu a.active {
   background-color: #00adee;
   color: #fff;
   box-shadow: 0 0 10px #00adee99;
 }
 
-/* Barra de busca */
+/* === Barra de Pesquisa === */
 .search-box {
   margin: 20px auto;
   text-align: center;
 }
 
 .search-box input {
-  padding: 10px;
+  padding: 12px;
   width: 80%;
   max-width: 400px;
-  border-radius: 8px;
+  border-radius: 25px;
   border: none;
   font-size: 16px;
+  background-color: #1c1c1c;
+  color: #fff;
+  box-shadow: inset 0 0 5px #000;
 }
 
-/* ☰ Botão de menu lateral */
-.menu-button {
-  font-size: 28px;
-  background: none;
-  border: none;
-  color: #00adee;
-  cursor: pointer;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 1100;
+.search-box input::placeholder {
+  color: #aaa;
 }
 
-/* Menu lateral */
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: -250px;
-  width: 250px;
-  height: 100%;
-  background-color: #222;
-  padding-top: 60px;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.7);
-  transition: left 0.3s ease;
-  z-index: 1050;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sidebar ul li {
-  padding: 15px 20px;
-}
-
-.sidebar ul li a {
-  color: #00adee;
-  text-decoration: none;
-  font-weight: 600;
-  display: block;
-  transition: background-color 0.2s;
-}
-
-.sidebar ul li a:hover {
-  background-color: #333;
-  border-radius: 5px;
-}
-
-/* Botão fechar lateral */
-.close-button {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 24px;
-  background: none;
-  border: none;
-  color: #00adee;
-  cursor: pointer;
-  z-index: 1100;
-}
-
-/* Conteúdo principal */
-main {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 20px;
-  gap: 20px;
-}
-
-/* Cards filmes e séries */
-.filme, .card {
+/* === Cards (Filmes e Séries) === */
+.card, .filme {
   background-color: #111;
   border: 2px solid #00adee;
   border-radius: 12px;
@@ -150,18 +83,18 @@ main {
   transition: transform 0.2s, box-shadow 0.3s;
 }
 
-.filme:hover, .card:hover {
+.card:hover, .filme:hover {
   transform: scale(1.05);
   box-shadow: 0 0 25px #00adeecc;
 }
 
-.filme h2, .card h2 {
+.card h2, .filme h2 {
   font-size: 20px;
   margin-bottom: 15px;
   color: #00adee;
 }
 
-.filme iframe, .card iframe {
+.card iframe, .filme iframe {
   width: 100%;
   height: 180px;
   border: none;
@@ -169,7 +102,7 @@ main {
   box-shadow: 0 0 10px #00adee55;
 }
 
-/* Botão Favoritar */
+/* === Botão Favoritar === */
 .favorito-btn {
   background-color: #00adee;
   color: #fff;
@@ -190,7 +123,7 @@ main {
   box-shadow: 0 6px 15px #007bbfbb;
 }
 
-/* Rodapé */
+/* === Rodapé === */
 footer {
   text-align: center;
   background-color: #222;
@@ -227,37 +160,78 @@ footer a {
   text-align: justify;
 }
 
-/* === 📱 Responsivo === */
-@media (max-width: 768px) {
-  .filme, .card {
-    width: 90%;
-  }
-
-  .search-box input {
-    width: 95%;
-  }
-
-  nav.top-menu {
-    display: flex;
-  }
-
-  .sobre-container {
-    padding: 20px 15px;
-  }
+/* === Menu Lateral (Desktop) === */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #222;
+  padding-top: 60px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.7);
+  transition: left 0.3s ease;
+  z-index: 1050;
 }
 
-/* === 💻 Desktop: mostra o menu lateral fixo === */
-@media (min-width: 769px) {
-  .sidebar {
-    left: 0;
-  }
-
-  main {
-    margin-left: 250px;
-  }
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* === Formulários: Contato e Sugestão === */
+.sidebar ul li {
+  padding: 15px 20px;
+}
+
+.sidebar ul li a {
+  color: #00adee;
+  text-decoration: none;
+  font-weight: 600;
+  display: block;
+  transition: background-color 0.2s;
+}
+
+.sidebar ul li a:hover {
+  background-color: #333;
+  border-radius: 5px;
+}
+
+/* Botão de Menu (mobile) */
+.menu-button {
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #00adee;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1100;
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #00adee;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+/* === Layout principal === */
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* === Formulários (Sugestão, Contato) === */
 form {
   max-width: 500px;
   margin: 40px auto;
@@ -272,7 +246,6 @@ form {
 
 form label {
   font-weight: bold;
-  margin-bottom: 5px;
   color: #00adee;
 }
 
@@ -285,6 +258,8 @@ form textarea {
   resize: vertical;
   width: 100%;
   box-sizing: border-box;
+  background-color: #222;
+  color: white;
 }
 
 form textarea {
@@ -304,4 +279,39 @@ form button[type="submit"] {
 
 form button[type="submit"]:hover {
   background-color: #008bb5;
+}
+
+/* === Responsividade === */
+@media (max-width: 768px) {
+  .filme, .card {
+    width: 90%;
+  }
+
+  .search-box input {
+    width: 95%;
+  }
+
+  nav.top-menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .sobre-container {
+    padding: 20px 15px;
+  }
+
+  main {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 769px) {
+  .sidebar {
+    left: 0;
+  }
+
+  main {
+    margin-left: 250px;
+  }
 }
