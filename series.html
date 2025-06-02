@@ -7,63 +7,63 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: Arial, sans-serif;
       background-color: #111;
-      color: white;
+      color: #fff;
     }
 
     header {
-      background-color: #000;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      background-color: #222;
+      padding: 20px;
+      text-align: center;
+      position: relative;
       box-shadow: 0 2px 8px rgba(0,0,0,0.7);
-    }
-
-    .logo {
-      font-size: 26px;
-      font-weight: 700;
-      color: #007bff;
       user-select: none;
     }
 
-    nav {
+    header h1 {
+      margin: 0;
+      color: #00adee;
+      font-weight: 700;
+      font-size: 28px;
+    }
+
+    nav.top-menu {
       display: flex;
-      gap: 20px;
+      justify-content: center;
       flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+      background-color: #222;
+      padding: 10px 0;
     }
 
-    nav a {
-      color: #fff;
+    nav.top-menu a {
+      color: #00adee;
       text-decoration: none;
-      padding: 10px 18px;
+      margin: 0 12px;
+      font-weight: 600;
+      padding: 8px 20px;
       border-radius: 25px;
-      background-color: #111;
+      transition: background-color 0.3s ease;
       border: 1px solid transparent;
-      transition: background-color 0.3s, border-color 0.3s;
     }
 
-    nav a:hover {
-      background-color: #007bff;
-      border-color: #007bff;
-      color: #fff;
+    nav.top-menu a:hover {
+      background-color: #00adee;
+      color: #111;
+      border-color: #00adee;
     }
 
     .search-box {
-      width: 100%;
-      padding: 15px 30px;
-      background-color: #000;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+      margin: 20px auto;
+      text-align: center;
+      max-width: 450px;
+      padding: 0 10px;
     }
 
     .search-box input {
       width: 100%;
-      max-width: 450px;
       padding: 12px 20px;
       border-radius: 30px;
       border: none;
@@ -71,78 +71,76 @@
       background-color: #222;
       color: #fff;
       box-shadow: inset 0 0 8px #000;
+      outline: none;
     }
 
     .search-box input::placeholder {
       color: #aaa;
     }
 
-    .container {
-      padding: 20px 30px;
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
       max-width: 1000px;
-      margin: auto;
-    }
-
-    .container h2 {
-      margin-bottom: 20px;
-      color: #007bff;
+      margin: 0 auto 60px;
     }
 
     .card {
-      background: #1a1a1a;
+      background-color: #1c1c1c;
+      border: 1px solid #333;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
       padding: 15px;
-      margin-bottom: 20px;
-      border-radius: 12px;
-      border-left: 5px solid #007bff;
-      transition: 0.3s;
+      width: 300px;
+      text-align: center;
+      color: #fff;
+      transition: transform 0.2s;
     }
 
     .card:hover {
-      transform: scale(1.01);
-      box-shadow: 0 0 12px rgba(0, 123, 255, 0.4);
+      transform: scale(1.03);
+      box-shadow: 0 0 15px #00adee;
     }
 
-    .card h3 {
-      margin-top: 0;
-      color: #007bff;
-      font-size: 20px;
+    .card h2 {
+      font-size: 18px;
+      margin-bottom: 12px;
+      color: #00adee;
     }
 
     iframe {
       width: 100%;
-      height: 315px;
+      height: 170px;
       border: none;
-      border-radius: 10px;
+      border-radius: 6px;
     }
 
     footer {
       text-align: center;
+      background-color: #222;
       padding: 20px;
-      color: #aaa;
-      background-color: #000;
+      color: #00adee;
+      font-weight: 600;
+      position: relative;
+      bottom: 0;
+      width: 100%;
       margin-top: 40px;
     }
 
-    @media (max-width: 600px) {
-      header {
-        padding: 10px 20px;
-        flex-direction: column;
-        align-items: flex-start;
+    @media (max-width: 768px) {
+      main {
+        justify-content: center;
       }
 
-      nav {
-        width: 100%;
-        justify-content: flex-start;
-        margin-top: 10px;
-        gap: 10px;
+      .card {
+        width: 90%;
       }
 
       .search-box {
-        padding: 10px 20px;
-      }
-
-      .container {
-        padding: 15px 20px;
+        max-width: 90%;
       }
     }
   </style>
@@ -150,8 +148,8 @@
 <body>
 
 <header>
-  <div class="logo">🎬 Filmes & Séries</div>
-  <nav>
+  <h1>🎬 Filmes & Séries</h1>
+  <nav class="top-menu">
     <a href="index.html">Início</a>
     <a href="filmes.html">Filmes</a>
     <a href="series.html">Séries</a>
@@ -164,37 +162,35 @@
   <input type="text" id="searchInput" placeholder="Pesquisar séries..." />
 </div>
 
-<div class="container">
-  <h2>📺 Séries Disponíveis</h2>
-
+<main>
   <div class="card">
-    <h3>Série 1</h3>
+    <h2>Série 1</h2>
     <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
   </div>
 
   <div class="card">
-    <h3>Série 2</h3>
+    <h2>Série 2</h2>
     <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
   </div>
 
   <div class="card">
-    <h3>Stranger Things</h3>
+    <h2>Stranger Things</h2>
     <iframe src="https://www.youtube.com/embed/b9EkMc79ZSU" allowfullscreen></iframe>
   </div>
-</div>
+</main>
 
 <footer>
-  <p>&copy; 2025 - Todos os direitos reservados</p>
+  &copy; 2025 - Todos os direitos reservados
 </footer>
 
 <script>
   const searchInput = document.getElementById("searchInput");
-  searchInput.addEventListener("input", function () {
+  searchInput.addEventListener("input", () => {
     const searchTerm = searchInput.value.toLowerCase();
     const cards = document.querySelectorAll(".card");
 
-    cards.forEach((card) => {
-      const title = card.querySelector("h3").textContent.toLowerCase();
+    cards.forEach(card => {
+      const title = card.querySelector("h2").textContent.toLowerCase();
       card.style.display = title.includes(searchTerm) ? "block" : "none";
     });
   });
