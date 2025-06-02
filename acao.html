@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ação - Filmes & Séries</title>
+  <title>Animação - Filmes & Séries</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     body {
@@ -14,46 +14,42 @@
       max-width: 900px;
       margin: 40px auto;
     }
-
     h1 {
       color: #00adee;
       text-align: center;
       margin-bottom: 20px;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
     }
-
     p {
       font-size: 16px;
       line-height: 1.6;
       color: #ccc;
       text-align: center;
-      margin-bottom: 30px;
     }
-
-    .botao-voltar {
-      display: block;
-      width: fit-content;
-      margin: 0 auto;
-      padding: 12px 25px;
-      background-color: #00adee;
-      color: #fff;
+    a {
+      color: #00adee;
       text-decoration: none;
-      border-radius: 8px;
+      display: inline-block;
+      margin-top: 30px;
       font-weight: bold;
-      transition: background-color 0.3s, transform 0.3s;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 173, 238, 0.3);
+      padding: 10px 20px;
+      border: 2px solid #00adee;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 173, 238, 0.6);
+      transition: background-color 0.3s, color 0.3s;
     }
-
-    .botao-voltar:hover {
-      background-color: #0099cc;
-      transform: translateY(-2px);
+    a:hover {
+      background-color: #00adee;
+      color: #0d0d0d;
+      box-shadow: 0 0 15px rgba(0, 173, 238, 0.9);
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <h1>🔥 Ação</h1>
+  
+<h1>🔥 Ação</h1>
   <p>Filmes e séries eletrizantes com muita adrenalina e aventura.</p>
-  <a href="categorias.html" class="botao-voltar">← Voltar para Categorias</a>
+  <a href="categorias.html">← voltar para categorias</a>
 </body>
 </html>
