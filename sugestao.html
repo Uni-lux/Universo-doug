@@ -8,12 +8,12 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #111;
-      color: white;
+      background-color: #111; /* fundo escuro */
+      color: #fff; /* texto branco */
     }
 
     header {
-      background-color: #000;
+      background-color: #000; /* fundo preto */
       padding: 15px 30px;
       display: flex;
       justify-content: space-between;
@@ -27,8 +27,9 @@
 
     .logo {
       font-size: 26px;
-      font-weight: bold;
-      color: #007bff;
+      font-weight: 700;
+      color: #007bff; /* azul */
+      user-select: none;
     }
 
     nav {
@@ -38,41 +39,47 @@
     }
 
     nav a {
-      color: white;
+      color: #fff; /* texto branco */
       text-decoration: none;
       padding: 10px 18px;
       border-radius: 25px;
-      background-color: #111;
-      transition: 0.3s;
+      background-color: #111; /* fundo escuro */
+      border: 1px solid transparent;
+      transition: background-color 0.3s, border-color 0.3s;
     }
 
     nav a:hover {
-      background-color: #007bff;
-      color: white;
+      background-color: #007bff; /* azul no hover */
+      border-color: #007bff;
+      color: #fff;
     }
 
     .voltar-btn {
       display: inline-block;
       margin: 20px 30px 0;
       padding: 10px 20px;
-      background-color: #222;
-      color: white;
+      background-color: #111; /* fundo escuro igual aos links */
+      color: #fff;
       text-decoration: none;
       border-radius: 30px;
-      transition: 0.3s;
+      border: 1px solid transparent;
+      transition: background-color 0.3s, border-color 0.3s;
+      cursor: pointer;
     }
 
     .voltar-btn:hover {
       background-color: #007bff;
+      border-color: #007bff;
+      color: #fff;
     }
 
     .form-container {
       max-width: 600px;
-      background-color: #1a1a1a;
+      background-color: #1a1a1a; /* fundo do card */
       margin: 40px auto;
       padding: 30px;
       border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0, 123, 255, 0.2);
+      box-shadow: 0 0 15px rgba(0, 123, 255, 0.2); /* sombra azul suave */
     }
 
     .form-container p {
@@ -90,30 +97,37 @@
       border-radius: 8px;
       border: none;
       font-size: 15px;
-      background-color: #222;
-      color: white;
+      background-color: #222; /* fundo do input */
+      color: #fff;
+      box-shadow: inset 0 0 8px #000;
+      resize: vertical;
+    }
+
+    form input::placeholder,
+    form textarea::placeholder {
+      color: #aaa;
     }
 
     form button {
       padding: 12px 25px;
-      background: #007bff;
-      color: white;
+      background: #007bff; /* azul */
+      color: #fff;
       border: none;
       border-radius: 30px;
-      font-weight: bold;
+      font-weight: 700;
       cursor: pointer;
-      transition: 0.3s;
+      transition: background-color 0.3s;
     }
 
     form button:hover {
-      background: #005ecb;
+      background: #005ecb; /* azul mais escuro */
     }
 
     footer {
       text-align: center;
       padding: 20px;
       color: #aaa;
-      background-color: #000;
+      background-color: #000; /* fundo preto */
       margin-top: 40px;
     }
 
@@ -161,11 +175,11 @@
     <p>Envie sua sugestão de filme ou série. Nós vamos analisar com carinho!</p>
 
     <form action="https://formsubmit.co/douglasjose807gg@gmail.com" method="POST">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://uni-lux.github.io/Universo-doug/agradecimento.html">
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value="https://uni-lux.github.io/Universo-doug/agradecimento.html" />
 
-      <input type="text" name="nome" placeholder="Seu nome" required>
-      <input type="email" name="email" placeholder="Seu e-mail" required>
+      <input type="text" name="nome" placeholder="Seu nome" required />
+      <input type="email" name="email" placeholder="Seu e-mail" required />
       <textarea name="mensagem" placeholder="Digite sua sugestão" rows="5" required></textarea>
       <button type="submit">Enviar Sugestão</button>
     </form>
