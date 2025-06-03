@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Animação - Filmes & Séries</title>
+  <title>Terror - Filmes & Séries</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     body {
@@ -11,44 +11,152 @@
       color: #fff;
       font-family: Arial, sans-serif;
       padding: 20px;
-      max-width: 900px;
+      max-width: 1200px;
       margin: 40px auto;
     }
+
     h1 {
       color: #00adee;
       text-align: center;
       margin-bottom: 20px;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
     }
+
     p {
       font-size: 16px;
       line-height: 1.6;
       color: #ccc;
       text-align: center;
     }
-    a {
+
+    a.voltar {
       color: #00adee;
       text-decoration: none;
       display: inline-block;
-      margin-top: 30px;
+      margin: 30px auto;
       font-weight: bold;
       padding: 10px 20px;
       border: 2px solid #00adee;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 173, 238, 0.6);
       transition: background-color 0.3s, color 0.3s;
+      text-align: center;
     }
-    a:hover {
+
+    a.voltar:hover {
       background-color: #00adee;
       color: #0d0d0d;
       box-shadow: 0 0 15px rgba(0, 173, 238, 0.9);
-      text-decoration: none;
+    }
+
+    .filmes-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .filme-card {
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      padding: 15px;
+      width: 300px;
+      box-shadow: 0 0 10px rgba(0, 173, 238, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .filme-card:hover {
+      transform: scale(1.03);
+    }
+
+    .filme-card h3 {
+      color: #00adee;
+      font-size: 18px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .filme-card iframe {
+      width: 100%;
+      height: 170px;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    .btn {
+      padding: 8px 12px;
+      background-color: #00adee;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #008bb8;
     }
   </style>
 </head>
 <body>
+
   <h1>👻 Terror</h1>
   <p>Prepare-se para sustos, tensão e muito suspense.</p>
-  <a href="categorias.html">← Voltar para categorias</a>
+
+  <div class="filmes-container">
+    <div class="filme-card">
+      <h3>Nosferatu (1922)</h3>
+      <iframe src="https://www.youtube.com/embed/FC6jFoYm3xs" allowfullscreen></iframe>
+      <div class="btn-container">
+        <button class="btn" onclick="location.href='filmes.html#nosferatu'">Assistir</button>
+        <button class="btn" onclick="favoritarFilme('nosferatu', 'Nosferatu (1922)', 'https://www.youtube.com/embed/FC6jFoYm3xs')">Favoritar</button>
+      </div>
+    </div>
+
+    <div class="filme-card">
+      <h3>O Gabinete do Dr. Caligari (1920)</h3>
+      <iframe src="https://www.youtube.com/embed/IAtjoZGFUdo" allowfullscreen></iframe>
+      <div class="btn-container">
+        <button class="btn" onclick="location.href='filmes.html#caligari'">Assistir</button>
+        <button class="btn" onclick="favoritarFilme('caligari', 'O Gabinete do Dr. Caligari (1920)', 'https://www.youtube.com/embed/IAtjoZGFUdo')">Favoritar</button>
+      </div>
+    </div>
+
+    <div class="filme-card">
+      <h3>A Noiva de Frankenstein (1935)</h3>
+      <iframe src="https://www.youtube.com/embed/mXh6m2kMNbU" allowfullscreen></iframe>
+      <div class="btn-container">
+        <button class="btn" onclick="location.href='filmes.html#noiva'">Assistir</button>
+        <button class="btn" onclick="favoritarFilme('noiva', 'A Noiva de Frankenstein (1935)', 'https://www.youtube.com/embed/mXh6m2kMNbU')">Favoritar</button>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align: center;">
+    <a href="categorias.html" class="voltar">← Voltar para categorias</a>
+  </div>
+
+  <script>
+    function favoritarFilme(id, titulo, video) {
+      let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+      const existe = favoritos.find(f => f.id === id);
+      if (!existe) {
+        favoritos.push({ id, titulo, video });
+        localStorage.setItem("favoritos", JSON.stringify(favoritos));
+        alert("Filme favoritado!");
+      } else {
+        alert("Este filme já está nos seus favoritos.");
+      }
+    }
+  </script>
+
 </body>
 </html>
