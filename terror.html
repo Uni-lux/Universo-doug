@@ -18,7 +18,7 @@
     h1 {
       color: #00adee;
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
     }
 
@@ -27,26 +27,24 @@
       line-height: 1.6;
       color: #ccc;
       text-align: center;
+      margin-bottom: 30px;
     }
 
-    a.voltar {
-      color: #00adee;
-      text-decoration: none;
-      display: inline-block;
-      margin: 30px auto;
-      font-weight: bold;
-      padding: 10px 20px;
-      border: 2px solid #00adee;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 173, 238, 0.6);
-      transition: background-color 0.3s, color 0.3s;
+    .search-container {
       text-align: center;
+      margin-bottom: 30px;
     }
 
-    a.voltar:hover {
-      background-color: #00adee;
-      color: #0d0d0d;
-      box-shadow: 0 0 15px rgba(0, 173, 238, 0.9);
+    .search-container input {
+      width: 300px;
+      padding: 10px;
+      border-radius: 25px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      background-color: #1a1a1a;
+      color: #fff;
+      box-shadow: 0 0 10px rgba(0, 173, 238, 0.2);
     }
 
     .filmes-container {
@@ -54,7 +52,6 @@
       flex-wrap: wrap;
       gap: 20px;
       justify-content: center;
-      margin-top: 40px;
     }
 
     .filme-card {
@@ -104,6 +101,25 @@
     .btn:hover {
       background-color: #008bb8;
     }
+
+    a.voltar {
+      color: #00adee;
+      text-decoration: none;
+      display: inline-block;
+      margin: 40px auto 20px;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: 2px solid #00adee;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 173, 238, 0.6);
+      transition: background-color 0.3s, color 0.3s;
+      text-align: center;
+    }
+
+    a.voltar:hover {
+      background-color: #00adee;
+      color: #0d0d0d;
+    }
   </style>
 </head>
 <body>
@@ -111,7 +127,13 @@
   <h1>👻 Terror</h1>
   <p>Prepare-se para sustos, tensão e muito suspense.</p>
 
-  <div class="filmes-container">
+  <!-- Campo de Pesquisa -->
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Pesquisar filmes de terror..." onkeyup="filtrarFilmes()" />
+  </div>
+
+  <!-- Lista de Filmes -->
+  <div class="filmes-container" id="filmesContainer">
     <div class="filme-card">
       <h3>Nosferatu (1922)</h3>
       <iframe src="https://www.youtube.com/embed/FC6jFoYm3xs" allowfullscreen></iframe>
@@ -144,6 +166,7 @@
     <a href="categorias.html" class="voltar">← Voltar para categorias</a>
   </div>
 
+  <!-- Script Favoritar e Pesquisa -->
   <script>
     function favoritarFilme(id, titulo, video) {
       let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
@@ -155,6 +178,20 @@
       } else {
         alert("Este filme já está nos seus favoritos.");
       }
+    }
+
+    function filtrarFilmes() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const filmes = document.querySelectorAll(".filme-card");
+
+      filmes.forEach(filme => {
+        const titulo = filme.querySelector("h3").textContent.toLowerCase();
+        if (titulo.includes(input)) {
+          filme.style.display = "block";
+        } else {
+          filme.style.display = "none";
+        }
+      });
     }
   </script>
 
