@@ -11,11 +11,8 @@
   <!-- 🔝 Cabeçalho -->
   <header>
     <h1>Filmes & Séries</h1>
-
-    <!-- ☰ Botão do menu lateral -->
     <button id="menuToggle" class="menu-button">☰</button>
 
-    <!-- ☰ Menu Topo -->
     <nav class="top-menu">
       <a href="index.html">Início</a>
       <a href="filmes.html">Filmes</a>
@@ -23,7 +20,6 @@
       <a href="contato.html">Contato</a>
     </nav>
 
-    <!-- 🔍 Barra de Pesquisa -->
     <div class="search-box">
       <input type="text" id="searchInput" placeholder="Pesquisar filmes ou séries..." />
     </div>
@@ -48,41 +44,32 @@
 
   <!-- 🎬 Conteúdo Principal -->
   <main>
-
-    <!-- 🎞️ Nosferatu -->
+    <!-- Nosferatu -->
     <section class="card">
       <h2>Nosferatu (1922)</h2>
-      <iframe src="https://www.youtube.com/embed/FC6jFoYm3xs" allowfullscreen></iframe>
-      <p><strong>Resumo:</strong> Um corretor de imóveis viaja para a Transilvânia e encontra um vampiro que espalha o terror em sua cidade.</p>
-      <p><strong>Duração:</strong> 1h 34min</p>
-      <p><strong>Ano:</strong> 1922</p>
-      <a href="#" target="_blank" class="assistir-btn">🎬 Assistir Filme Completo</a>
-      <button class="favorito-btn" onclick="adicionarFavorito('Nosferatu (1922)')">❤ Favoritar</button>
+      <iframe src="https://www.youtube.com/embed/Ju3988oE4pU" allowfullscreen></iframe>
+      <p><strong>Duração:</strong> 94 min • <strong>Ano:</strong> 1922</p>
+      <p>Um dos primeiros filmes de terror da história, Nosferatu é uma adaptação não autorizada de Drácula.</p>
+      <a href="filmes.html#nosferatu" class="botao-filme">🎬 Assistir Filme Completo</a>
     </section>
 
-    <!-- 🎞️ O Gabinete do Dr. Caligari -->
+    <!-- Dr. Caligari -->
     <section class="card">
       <h2>O Gabinete do Dr. Caligari (1920)</h2>
-      <iframe src="https://www.youtube.com/embed/IAtzGLfG6N0" allowfullscreen></iframe>
-      <p><strong>Resumo:</strong> Um hipnotizador usa um sonâmbulo para cometer assassinatos em uma cidade alemã, em um clássico do expressionismo.</p>
-      <p><strong>Duração:</strong> 1h 17min</p>
-      <p><strong>Ano:</strong> 1920</p>
-      <a href="#" target="_blank" class="assistir-btn">🎬 Assistir Filme Completo</a>
-      <button class="favorito-btn" onclick="adicionarFavorito('O Gabinete do Dr. Caligari (1920)')">❤ Favoritar</button>
+      <iframe src="https://www.youtube.com/embed/IF2g07Afxo0" allowfullscreen></iframe>
+      <p><strong>Duração:</strong> 77 min • <strong>Ano:</strong> 1920</p>
+      <p>Um clássico do expressionismo alemão sobre hipnose e assassinatos misteriosos.</p>
+      <a href="filmes.html#caligari" class="botao-filme">🎬 Assistir Filme Completo</a>
     </section>
 
-    <!-- 🎞️ A Noiva de Frankenstein -->
+    <!-- A Noiva de Frankenstein -->
     <section class="card">
       <h2>A Noiva de Frankenstein (1935)</h2>
-      <iframe src="https://www.youtube.com/embed/5OiaSdT0BU8" allowfullscreen></iframe>
-      <p><strong>Resumo:</strong> A criatura de Frankenstein retorna, e um novo experimento dá origem a uma companheira, em um clássico do horror gótico.</p>
-      <p><strong>Duração:</strong> 1h 15min</p>
-      <p><strong>Ano:</strong> 1935</p>
-      <a href="#" target="_blank" class="assistir-btn">🎬 Assistir Filme Completo</a>
-      <button class="favorito-btn" onclick="adicionarFavorito('A Noiva de Frankenstein (1935)')">❤ Favoritar</button>
+      <iframe src="https://www.youtube.com/embed/LztMue8uXjM" allowfullscreen></iframe>
+      <p><strong>Duração:</strong> 75 min • <strong>Ano:</strong> 1935</p>
+      <p>Continuação do clássico Frankenstein, onde o monstro busca uma companheira.</p>
+      <a href="filmes.html#noiva" class="botao-filme">🎬 Assistir Filme Completo</a>
     </section>
-
-    <button onclick="history.back()">🔙 Voltar</button>
   </main>
 
   <!-- ⚖ Rodapé -->
@@ -95,7 +82,6 @@
 
   <!-- 🔧 Scripts -->
   <script>
-    // Menu lateral
     const menuToggle = document.getElementById("menuToggle");
     const sidebar = document.getElementById("sidebar");
     const closeSidebar = document.getElementById("closeSidebar");
@@ -108,7 +94,6 @@
       sidebar.style.left = "-250px";
     });
 
-    // Barra de pesquisa
     const searchInput = document.getElementById("searchInput");
     searchInput.addEventListener("keyup", function () {
       const searchTerm = searchInput.value.toLowerCase();
@@ -119,23 +104,6 @@
         card.style.display = title.includes(searchTerm) ? "block" : "none";
       });
     });
-
-    // Adicionar aos favoritos
-    function adicionarFavorito(titulo) {
-      const iframe = event.target.closest(".card").querySelector("iframe");
-      const videoURL = iframe ? iframe.src : "";
-
-      let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
-
-      const jaExiste = favoritos.some(f => f.titulo === titulo);
-      if (!jaExiste) {
-        favoritos.push({ titulo: titulo, video: videoURL });
-        localStorage.setItem("favoritos", JSON.stringify(favoritos));
-        alert(`"${titulo}" adicionado aos favoritos!`);
-      } else {
-        alert(`"${titulo}" já está na sua lista.`);
-      }
-    }
   </script>
 </body>
 </html>
