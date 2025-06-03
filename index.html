@@ -1,100 +1,119 @@
-<!DOCTYPE html>  <html lang="pt-BR">  
-<head>  
-  <meta charset="UTF-8" />  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
-  <title>Filmes & Séries Online</title>  
-  <link rel="stylesheet" href="style.css" />  
-</head>  
-<body>  
-  <header>  
-    <h1>Filmes & Séries</h1>  <!-- ☰ Botão do menu lateral -->  
-<button id="menuToggle" class="menu-button">☰</button>  
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Filmes & Séries Online</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-<!-- ☰ Menu Topo -->  
-<nav class="top-menu">  
-  <a href="index.html">Início</a>  
-  <a href="filmes.html">Filmes</a>  
-  <a href="series.html">Séries</a>  
-  <a href="contato.html">Contato</a>  
-</nav>  
+  <!-- 🔝 Cabeçalho -->
+  <header>
+    <h1>Filmes & Séries</h1>
 
-<!-- 🔍 Barra de Pesquisa -->  
-<div class="search-box">  
-  <input type="text" id="searchInput" placeholder="Pesquisar filmes ou séries..." />  
-</div>
+    <!-- ☰ Botão do menu lateral -->
+    <button id="menuToggle" class="menu-button">☰</button>
 
-  </header>    <!-- 🧭 Menu Lateral -->    <aside id="sidebar" class="sidebar">  
-    <button id="closeSidebar" class="close-button">✖</button>  
-    <ul>  
-      <li><a href="index.html">Início</a></li>  
-      <li><a href="sugestao.html">Sugerir um Filme</a></li>  
-      <li><a href="lançamentos.html">Lançamentos</a></li>  
-      <li><a href="categorias.html">Categorias</a></li>  
-      <li><a href="favoritos.html">Minha Lista</a></li>  
-      <li><a href="novidades.html">Novidades</a></li>  
-      <li><a href="sobre.html">Sobre</a></li>  
-      <li><a href="ajuda.html">Ajuda</a></li>  
-      <li><a href="faq.html">FAQ</a></li>  
-      <li><a href="login.html">Entrar</a></li>  
-    </ul>  
-  </aside>    <!-- 🎬 Conteúdo Principal -->    <main>  
-    <section class="card">  
-      <h2>Nome do Filme 1</h2>  
-      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>  
-      <button class="favorito-btn" onclick="adicionarFavorito('Nome do Filme 1')">❤ Favoritar</button>  
-    </section>  <section class="card">  
-  <h2>Nome do Filme 2</h2>  
-  <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>  
-  <button class="favorito-btn" onclick="adicionarFavorito('Nome do Filme 2')">❤ Favoritar</button>  
-</section>  
+    <!-- ☰ Menu Topo -->
+    <nav class="top-menu">
+      <a href="index.html">Início</a>
+      <a href="filmes.html">Filmes</a>
+      <a href="series.html">Séries</a>
+      <a href="contato.html">Contato</a>
+    </nav>
 
-<button onclick="history.back()">🔙 Voltar</button>
+    <!-- 🔍 Barra de Pesquisa -->
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Pesquisar filmes ou séries..." />
+    </div>
+  </header>
 
-  </main>    <footer>  
-    <p>&copy; 2025 - Todos os direitos reservados</p>  
-    <a href="privacidade.html">Política de Privacidade</a> |  
-    <a href="termos.html">Termos de Uso</a>  
-  </footer>    <!-- 🔧 Script -->    <script>  
-    // Menu lateral  
-    const menuToggle = document.getElementById("menuToggle");  
-    const sidebar = document.getElementById("sidebar");  
-    const closeSidebar = document.getElementById("closeSidebar");  
-  
-    menuToggle.addEventListener("click", () => {  
-      sidebar.style.left = "0";  
-    });  
-  
-    closeSidebar.addEventListener("click", () => {  
-      sidebar.style.left = "-250px";  
-    });  
-  
-    // Barra de pesquisa  
-    const searchInput = document.getElementById("searchInput");  
-    searchInput.addEventListener("keyup", function () {  
-      const searchTerm = searchInput.value.toLowerCase();  
-      const cards = document.querySelectorAll(".card");  
-  
-      cards.forEach((card) => {  
-        const title = card.querySelector("h2").textContent.toLowerCase();  
-        card.style.display = title.includes(searchTerm) ? "block" : "none";  
-      });  
-    });  
-  
-    // Adicionar aos favoritos  
-    function adicionarFavorito(titulo) {  
-      const iframe = event.target.closest(".card").querySelector("iframe");  
-      const videoURL = iframe ? iframe.src : "";  
-  
-      let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];  
-  
-      const jaExiste = favoritos.some(f => f.titulo === titulo);  
-      if (!jaExiste) {  
-        favoritos.push({ titulo: titulo, video: videoURL });  
-        localStorage.setItem("favoritos", JSON.stringify(favoritos));  
-        alert(`"${titulo}" adicionado aos favoritos!`);  
-      } else {  
-        alert(`"${titulo}" já está na sua lista.`);  
-      }  
-    }  
-  </script>  </body>  
+  <!-- 🧭 Menu Lateral -->
+  <aside id="sidebar" class="sidebar">
+    <button id="closeSidebar" class="close-button">✖</button>
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="sugestao.html">Sugerir um Filme</a></li>
+      <li><a href="lançamentos.html">Lançamentos</a></li>
+      <li><a href="categorias.html">Categorias</a></li>
+      <li><a href="favoritos.html">Minha Lista</a></li>
+      <li><a href="novidades.html">Novidades</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="ajuda.html">Ajuda</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="login.html">Entrar</a></li>
+    </ul>
+  </aside>
+
+  <!-- 🎬 Conteúdo Principal -->
+  <main>
+    <section class="card">
+      <h2>Nome do Filme 1</h2>
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+      <button class="favorito-btn" onclick="adicionarFavorito('Nome do Filme 1')">❤ Favoritar</button>
+    </section>
+
+    <section class="card">
+      <h2>Nome do Filme 2</h2>
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+      <button class="favorito-btn" onclick="adicionarFavorito('Nome do Filme 2')">❤ Favoritar</button>
+    </section>
+
+    <button onclick="history.back()">🔙 Voltar</button>
+  </main>
+
+  <!-- ⚖ Rodapé com links legais -->
+  <footer>
+    <p>&copy; 2025 - Todos os direitos reservados</p>
+    <a href="privacidade.html">Política de Privacidade</a> |
+    <a href="termos.html">Termos de Uso</a> |
+    <a href="licenciamento.html">Licenciamento</a>
+  </footer>
+
+  <!-- 🔧 Scripts -->
+  <script>
+    // Menu lateral
+    const menuToggle = document.getElementById("menuToggle");
+    const sidebar = document.getElementById("sidebar");
+    const closeSidebar = document.getElementById("closeSidebar");
+
+    menuToggle.addEventListener("click", () => {
+      sidebar.style.left = "0";
+    });
+
+    closeSidebar.addEventListener("click", () => {
+      sidebar.style.left = "-250px";
+    });
+
+    // Barra de pesquisa
+    const searchInput = document.getElementById("searchInput");
+    searchInput.addEventListener("keyup", function () {
+      const searchTerm = searchInput.value.toLowerCase();
+      const cards = document.querySelectorAll(".card");
+
+      cards.forEach((card) => {
+        const title = card.querySelector("h2").textContent.toLowerCase();
+        card.style.display = title.includes(searchTerm) ? "block" : "none";
+      });
+    });
+
+    // Adicionar aos favoritos
+    function adicionarFavorito(titulo) {
+      const iframe = event.target.closest(".card").querySelector("iframe");
+      const videoURL = iframe ? iframe.src : "";
+
+      let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+
+      const jaExiste = favoritos.some(f => f.titulo === titulo);
+      if (!jaExiste) {
+        favoritos.push({ titulo: titulo, video: videoURL });
+        localStorage.setItem("favoritos", JSON.stringify(favoritos));
+        alert(`"${titulo}" adicionado aos favoritos!`);
+      } else {
+        alert(`"${titulo}" já está na sua lista.`);
+      }
+    }
+  </script>
+</body>
 </html>
