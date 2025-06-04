@@ -1,207 +1,150 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html><html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
+  <title>Filmes de Terror - Filmes & Séries</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Terror - Filmes & Séries</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
     body {
-      background-color: #0d0d0d;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      max-width: 1200px;
-      margin: 40px auto;
-    }
-
-    h1 {
-      color: #00adee;
-      text-align: center;
-      margin-bottom: 20px;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-    }
-
-    p {
-      font-size: 16px;
-      line-height: 1.6;
-      color: #ccc;
-      text-align: center;
-    }
-
-    a.voltar {
-      color: #00adee;
-      text-decoration: none;
-      display: inline-block;
-      margin: 30px auto;
-      font-weight: bold;
-      padding: 10px 20px;
-      border: 2px solid #00adee;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 173, 238, 0.6);
-      transition: background-color 0.3s, color 0.3s;
-      text-align: center;
-    }
-
-    a.voltar:hover {
-      background-color: #00adee;
-      color: #0d0d0d;
-      box-shadow: 0 0 15px rgba(0, 173, 238, 0.9);
-    }
-
-    .filmes-container {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111;
+      color: white;
       display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      margin-top: 40px;
+      flex-direction: column;
+      min-height: 100vh;
     }
-
-    .filme-card {
-      background-color: #1a1a1a;
-      border-radius: 10px;
-      padding: 15px;
-      width: 300px;
-      box-shadow: 0 0 10px rgba(0, 173, 238, 0.1);
-      transition: transform 0.3s;
-    }
-
-    .filme-card:hover {
-      transform: scale(1.03);
-    }
-
-    .filme-card h3 {
-      color: #00adee;
-      font-size: 18px;
-      margin-bottom: 10px;
-      text-align: center;
-    }
-
-    .filme-card iframe {
-      width: 100%;
-      height: 170px;
-      border: none;
-      border-radius: 8px;
-    }
-
-    .btn-container {
+    header {
+      background-color: #000;
+      padding: 15px 30px;
       display: flex;
       justify-content: space-between;
-      margin-top: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.7);
     }
-
-    .btn {
-      padding: 8px 12px;
-      background-color: #00adee;
+    .logo {
+      font-size: 26px;
+      font-weight: 700;
+      color: #00adee;
+    }
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    nav a {
       color: #fff;
-      border: none;
-      border-radius: 20px;
-      font-size: 14px;
-      cursor: pointer;
-      transition: background-color 0.3s;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 25px;
+      background-color: #111;
+      border: 1px solid transparent;
+      transition: 0.3s;
     }
-
-    .btn:hover {
+    nav a:hover {
+      background-color: #00adee;
+      border-color: #00adee;
+      color: #fff;
+      box-shadow: 0 0 8px #00adeeaa;
+    }
+    .search-box {
+      padding: 15px 30px;
+      background-color: #000;
+    }
+    .search-box input {
+      width: 100%;
+      max-width: 450px;
+      padding: 12px 20px;
+      border-radius: 30px;
+      border: none;
+      background-color: #222;
+      color: #fff;
+    }
+    .container {
+      padding: 20px 30px;
+      max-width: 1000px;
+      margin: auto;
+      flex-grow: 1;
+    }
+    .container h2 {
+      margin-bottom: 20px;
+      color: #00adee;
+    }
+    .card {
+      background: #1a1a1a;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 12px;
+      border-left: 5px solid #00adee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .card h3 {
+      margin: 0;
+      color: #00adee;
+    }
+    .btn-assistir {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 25px;
+      background-color: #00adee;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn-assistir:hover {
       background-color: #008bb8;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #aaa;
+      background-color: #000;
+      margin-top: auto;
     }
   </style>
 </head>
-<body>
-
-  <h1>👻 Terror</h1>
-  <p>Prepare-se para sustos, tensão e muito suspense.</p>
-
-  <div class="filmes-container">
-
-    <!-- Nosferatu -->
-    <div class="filme-card">
-      <h3>Nosferatu (1922)</h3>
-      <iframe src="https://www.youtube.com/embed/FC6jFoYm3xs" allowfullscreen></iframe>
-      <div class="btn-container">
-        <button class="btn" onclick="location.href='filmes.html#nosferatu'">Assistir</button>
-        <button class="btn" onclick="favoritarFilme('nosferatu', 'Nosferatu (1922)', 'https://www.youtube.com/embed/FC6jFoYm3xs')">Favoritar</button>
-      </div>
-    </div>
-
-    <!-- Dr. Caligari -->
-    <div class="filme-card">
-      <h3>O Gabinete do Dr. Caligari (1920)</h3>
-      <iframe src="https://www.youtube.com/embed/IAtjoZGFUdo" allowfullscreen></iframe>
-      <div class="btn-container">
-        <button class="btn" onclick="location.href='filmes.html#caligari'">Assistir</button>
-        <button class="btn" onclick="favoritarFilme('caligari', 'O Gabinete do Dr. Caligari (1920)', 'https://www.youtube.com/embed/IAtjoZGFUdo')">Favoritar</button>
-      </div>
-    </div>
-
-    <!-- Noiva de Frankenstein -->
-    <div class="filme-card">
-      <h3>A Noiva de Frankenstein (1935)</h3>
-      <iframe src="https://www.youtube.com/embed/mXh6m2kMNbU" allowfullscreen></iframe>
-      <div class="btn-container">
-        <button class="btn" onclick="location.href='filmes.html#noiva'">Assistir</button>
-        <button class="btn" onclick="favoritarFilme('noiva', 'A Noiva de Frankenstein (1935)', 'https://www.youtube.com/embed/mXh6m2kMNbU')">Favoritar</button>
-      </div>
-    </div>
-
-    <!-- Dementia 13 -->
-    <div class="filme-card">
-      <h3>Dementia 13 (1963)</h3>
-      <iframe src="https://www.youtube.com/embed/q1n2G5b7a1I" allowfullscreen></iframe>
-      <div class="btn-container">
-        <button class="btn" onclick="location.href='filmes.html#dementia13'">Assistir</button>
-        <button class="btn" onclick="favoritarFilme('dementia13', 'Dementia 13 (1963)', 'https://www.youtube.com/embed/q1n2G5b7a1I')">Favoritar</button>
-      </div>
-    </div>
-
-    <!-- Carnival of Souls -->
-    <div class="filme-card">
-      <h3>Carnival of Souls (1962)</h3>
-      <iframe src="https://www.youtube.com/embed/9e3hT10rTMU" allowfullscreen></iframe>
-      <div class="btn-container">
-        <button class="btn" onclick="location.href='filmes.html#carnival'">Assistir</button>
-        <button class="btn" onclick="favoritarFilme('carnival', 'Carnival of Souls (1962)', 'https://www.youtube.com/embed/9e3hT10rTMU')">Favoritar</button>
-      </div>
-    </div>
-
-    <!-- Daughter of Horror -->
-    <div class="filme-card">
-      <h3>Daughter of Horror (1955)</h3>
-      <iframe src="https://www.youtube.com/embed/I0jON_pjXf0" allowfullscreen></iframe>
-      <div class="btn-container">
-        <button class="btn" onclick="location.href='filmes.html#daughter'">Assistir</button>
-        <button class="btn" onclick="favoritarFilme('daughter', 'Daughter of Horror (1955)', 'https://www.youtube.com/embed/I0jON_pjXf0')">Favoritar</button>
-      </div>
-    </div>
-
-    <!-- The Bat / Relíquia Macabra -->
-    <div class="filme-card">
-      <h3>Relíquia Macabra (The Bat, 1959)</h3>
-      <iframe src="https://www.youtube.com/embed/kz2ZzXyXJzE" allowfullscreen></iframe>
-      <div class="btn-container">
-        <button class="btn" onclick="location.href='filmes.html#bat'">Assistir</button>
-        <button class="btn" onclick="favoritarFilme('bat', 'Relíquia Macabra (1959)', 'https://www.youtube.com/embed/kz2ZzXyXJzE')">Favoritar</button>
-      </div>
-    </div>
-
-  </div>
-
-  <div style="text-align: center;">
-    <a href="categorias.html" class="voltar">← Voltar para categorias</a>
-  </div>
-
-  <script>
-    function favoritarFilme(id, titulo, video) {
-      let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
-      const existe = favoritos.find(f => f.id === id);
-      if (!existe) {
-        favoritos.push({ id, titulo, video });
-        localStorage.setItem("favoritos", JSON.stringify(favoritos));
-        alert("Filme favoritado!");
-      } else {
-        alert("Este filme já está nos seus favoritos.");
-      }
-    }
-  </script>
-
-</body>
+<body><header>
+  <div class="logo">🎬 Filmes & Séries</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="filmes.html">Filmes</a>
+    <a href="series.html">Séries</a>
+    <a href="categorias.html">Categorias</a>
+    <a href="sugestao.html">Sugerir</a>
+  </nav>
+</header><div class="search-box">
+  <input type="text" id="searchInput" placeholder="Pesquisar filmes de Terror..." />
+</div><div class="container">
+  <h2>👻 Terror</h2>  <div class="card" data-title="Nosferatu (1922)">
+    <h3>Nosferatu (1922)</h3>
+    <button class="btn-assistir" onclick="window.location.href='filmes.html#nosferatu'">Assistir</button>
+  </div>  <div class="card" data-title="O Gabinete do Dr. Caligari (1920)">
+    <h3>O Gabinete do Dr. Caligari (1920)</h3>
+    <button class="btn-assistir" onclick="window.location.href='filmes.html#gabinete-caligari'">Assistir</button>
+  </div>  <div class="card" data-title="A Noiva de Frankenstein (1935)">
+    <h3>A Noiva de Frankenstein (1935)</h3>
+    <button class="btn-assistir" onclick="window.location.href='filmes.html#noiva-de-frankenstein'">Assistir</button>
+  </div>  <div class="card" data-title="Dementia 13 (1963)">
+    <h3>Dementia 13 (1963)</h3>
+    <button class="btn-assistir" onclick="window.location.href='filmes.html#dementia-13'">Assistir</button>
+  </div>  <div class="card" data-title="Carnival of Souls (1962)">
+    <h3>Carnival of Souls (1962)</h3>
+    <button class="btn-assistir" onclick="window.location.href='filmes.html#carnival-of-souls'">Assistir</button>
+  </div></div><footer>
+  <p>&copy; 2025 - Todos os direitos reservados</p>
+</footer><script>
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', () => {
+    const termo = searchInput.value.toLowerCase();
+    document.querySelectorAll('.card').forEach(card => {
+      const titulo = card.dataset.title.toLowerCase();
+      card.style.display = titulo.includes(termo) ? 'flex' : 'none';
+    });
+  });
+</script></body>
 </html>
