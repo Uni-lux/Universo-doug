@@ -86,7 +86,6 @@
       <a href="filmes.html">Filmes</a>
       <a href="series.html">Séries</a>
       <a href="sugestao.html">Sugerir</a>
-      <a href="contato.html">Contato</a>
     </nav>
     <div class="search-box">
       <input type="text" id="searchInput" placeholder="Pesquisar categorias..." aria-label="Pesquisar categorias" />
@@ -112,36 +111,36 @@
   <main>
     <div class="categorias-container">
       <h2>🎬 Navegue por Categorias</h2>
-      <div class="categoria-grid">
-        <a href="acao.html" class="categoria-card" tabindex="0" aria-label="Categoria ação - Filmes e séries eletrizantes com muita adrenalina e aventura">
+      <div class="categoria-grid" id="categoriaGrid">
+        <a href="acao.html" class="categoria-card">
           <h3>🔥 Ação</h3>
           <p>Filmes e séries eletrizantes com muita adrenalina e aventura.</p>
         </a>
-        <a href="comedia.html" class="categoria-card" tabindex="0" aria-label="Categoria comedia - Ria sem parar com os melhores títulos de humor e diversão">
+        <a href="comedia.html" class="categoria-card">
           <h3>😂 Comédia</h3>
           <p>Ria sem parar com os melhores títulos de humor e diversão.</p>
         </a>
-        <a href="drama.html" class="categoria-card" tabindex="0" aria-label="Categoria drama - Histórias profundas, emocionantes e envolventes">
+        <a href="drama.html" class="categoria-card">
           <h3>🎭 Drama</h3>
           <p>Histórias profundas, emocionantes e envolventes.</p>
         </a>
-        <a href="ficcao.html" class="categoria-card" tabindex="0" aria-label="Categoria ficcao cientifica - Viaje para o futuro e explore mundos além da imaginação">
+        <a href="ficcao.html" class="categoria-card">
           <h3>🚀 Ficção Científica</h3>
           <p>Viaje para o futuro e explore mundos além da imaginação.</p>
         </a>
-        <a href="terror.html" class="categoria-card" tabindex="0" aria-label="Categoria terror - Prepare-se para sustos, tensão e muito suspense">
+        <a href="terror.html" class="categoria-card">
           <h3>👻 Terror</h3>
           <p>Prepare-se para sustos, tensão e muito suspense.</p>
         </a>
-        <a href="romance.html" class="categoria-card" tabindex="0" aria-label="Categoria romance - Histórias apaixonantes que tocam o coração">
+        <a href="romance.html" class="categoria-card">
           <h3>❤️ Romance</h3>
           <p>Histórias apaixonantes que tocam o coração.</p>
         </a>
-        <a href="documentarios.html" class="categoria-card" tabindex="0" aria-label="Categoria documentarios - Conteúdos informativos e reflexivos sobre o mundo real">
+        <a href="documentarios.html" class="categoria-card">
           <h3>🎥 Documentários</h3>
           <p>Conteúdos informativos e reflexivos sobre o mundo real.</p>
         </a>
-        <a href="animacao.html" class="categoria-card" tabindex="0" aria-label="Categoria animacao - Entretenimento divertido para todas as idades">
+        <a href="animacao.html" class="categoria-card">
           <h3>🎨 Animação</h3>
           <p>Entretenimento divertido para todas as idades.</p>
         </a>
@@ -172,17 +171,14 @@
       }
 
       const searchInput = document.getElementById("searchInput");
-      if (searchInput) {
-        searchInput.addEventListener("keyup", function () {
-          const searchTerm = searchInput.value.toLowerCase();
-          const cards = document.querySelectorAll(".categoria-card");
+      const cards = document.querySelectorAll(".categoria-card");
 
+      if (searchInput) {
+        searchInput.addEventListener("keyup", () => {
+          const searchTerm = searchInput.value.toLowerCase();
           cards.forEach((card) => {
-            const title = card.querySelector("h3").textContent.toLowerCase();
-            const description = card.querySelector("p").textContent.toLowerCase();
-            card.style.display = title.includes(searchTerm) || description.includes(searchTerm)
-              ? "block"
-              : "none";
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(searchTerm) ? "block" : "none";
           });
         });
       }
