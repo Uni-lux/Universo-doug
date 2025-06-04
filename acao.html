@@ -1,105 +1,111 @@
 <!DOCTYPE html><html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Filmes de Ação - Filmes & Séries</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
       background-color: #111;
       color: white;
-      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      background-color: #000;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    }
+    .logo {
+      font-size: 26px;
+      font-weight: 700;
+      color: #00adee;
+    }
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 25px;
+      background-color: #111;
+      border: 1px solid transparent;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      background-color: #00adee;
+      border-color: #00adee;
+      color: #fff;
+      box-shadow: 0 0 8px #00adeeaa;
+    }
+    .search-box {
+      padding: 15px 30px;
+      background-color: #000;
+    }
+    .search-box input {
+      width: 100%;
+      max-width: 450px;
+      padding: 12px 20px;
+      border-radius: 30px;
+      border: none;
+      background-color: #222;
+      color: #fff;
+    }
+    .container {
+      padding: 20px 30px;
+      max-width: 1000px;
+      margin: auto;
+      flex-grow: 1;
+    }
+    .container h2 {
+      margin-bottom: 20px;
+      color: #00adee;
+    }
+    .card {
+      background: #1a1a1a;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 12px;
+      border-left: 5px solid #00adee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .card h3 {
       margin: 0;
-    }header {
-  background-color: #000;
-  padding: 15px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-}
-
-.logo {
-  font-size: 26px;
-  font-weight: bold;
-  color: #00adee;
-}
-
-nav a {
-  color: #fff;
-  text-decoration: none;
-  padding: 10px 18px;
-  border-radius: 25px;
-  background-color: #111;
-  margin: 5px;
-  transition: 0.3s;
-}
-
-nav a:hover {
-  background-color: #00adee;
-  color: #fff;
-}
-
-.search-box {
-  padding: 20px 30px;
-  background-color: #000;
-}
-
-.search-box input {
-  width: 100%;
-  max-width: 450px;
-  padding: 12px 20px;
-  border-radius: 30px;
-  border: none;
-  background-color: #222;
-  color: #fff;
-}
-
-.container {
-  padding: 20px 30px;
-  max-width: 1000px;
-  margin: auto;
-}
-
-.container h2 {
-  color: #00adee;
-}
-
-.card {
-  background: #1a1a1a;
-  padding: 15px;
-  margin-bottom: 20px;
-  border-radius: 12px;
-  border-left: 5px solid #00adee;
-}
-
-.card h3 {
-  margin-top: 0;
-  color: #00adee;
-}
-
-iframe {
-  width: 100%;
-  height: 315px;
-  border: none;
-  border-radius: 10px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 10px 16px;
-  border-radius: 25px;
-  background-color: #00adee;
-  color: white;
-  text-decoration: none;
-  margin-top: 10px;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background-color: #008bb8;
-}
-
+      color: #00adee;
+    }
+    .btn-assistir {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 25px;
+      background-color: #00adee;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn-assistir:hover {
+      background-color: #008bb8;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #aaa;
+      background-color: #000;
+      margin-top: auto;
+    }
   </style>
 </head>
 <body><header>
@@ -112,35 +118,32 @@ iframe {
     <a href="sugestao.html">Sugerir</a>
   </nav>
 </header><div class="search-box">
-  <input type="text" id="searchInput" placeholder="Pesquisar filmes de ação...">
+  <input type="text" id="searchInput" placeholder="Pesquisar filmes de Ação..." />
 </div><div class="container">
-  <h2>🔥 Filmes de Ação</h2>  <div class="card">
+  <h2>💥 Ação</h2>  <div class="card" data-title="Dick Tracy (1937)">
     <h3>Dick Tracy (1937)</h3>
-    <iframe src="https://www.youtube.com/embed/mq1xFyWc8Jg" allowfullscreen></iframe>
-    <a href="filmes.html#dicktracy" class="btn">Assistir Filme Completo</a>
-  </div>  <div class="card">
-    <h3>Captain America (1944)</h3>
-    <iframe src="https://www.youtube.com/embed/R1vb_9wbxNw" allowfullscreen></iframe>
-    <a href="filmes.html#captainamerica" class="btn">Assistir Filme Completo</a>
-  </div>  <div class="card">
-    <h3>Zorro Rides Again (1937)</h3>
-    <iframe src="https://www.youtube.com/embed/7QIQsW47JxI" allowfullscreen></iframe>
-    <a href="filmes.html#zorroridesagain" class="btn">Assistir Filme Completo</a>
-  </div>  <div class="card">
+    <button class="btn-assistir" onclick="window.location.href='filmes.html#dick-tracy'">Assistir</button>
+  </div>  <div class="card" data-title="The Green Hornet (1940)">
     <h3>The Green Hornet (1940)</h3>
-    <iframe src="https://www.youtube.com/embed/b3EPCjwxLrQ" allowfullscreen></iframe>
-    <a href="filmes.html#greenhornet" class="btn">Assistir Filme Completo</a>
-  </div>  <div class="card">
-    <h3>The Lone Ranger (1938)</h3>
-    <iframe src="https://www.youtube.com/embed/wpp1Doh2K0Q" allowfullscreen></iframe>
-    <a href="filmes.html#loneranger" class="btn">Assistir Filme Completo</a>
-  </div></div><script>
-  const searchInput = document.getElementById("searchInput");
-  searchInput.addEventListener("input", () => {
+    <button class="btn-assistir" onclick="window.location.href='filmes.html#the-green-hornet'">Assistir</button>
+  </div>  <div class="card" data-title="Zorro's Fighting Legion (1939)">
+    <h3>Zorro's Fighting Legion (1939)</h3>
+    <button class="btn-assistir" onclick="window.location.href='filmes.html#zorros-fighting-legion'">Assistir</button>
+  </div>  <div class="card" data-title="The Fighting Marines (1935)">
+    <h3>The Fighting Marines (1935)</h3>
+    <button class="btn-assistir" onclick="window.location.href='filmes.html#the-fighting-marines'">Assistir</button>
+  </div>  <div class="card" data-title="The Shadow Strikes (1937)">
+    <h3>The Shadow Strikes (1937)</h3>
+    <button class="btn-assistir" onclick="window.location.href='filmes.html#the-shadow-strikes'">Assistir</button>
+  </div></div><footer>
+  <p>&copy; 2025 - Todos os direitos reservados</p>
+</footer><script>
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', () => {
     const termo = searchInput.value.toLowerCase();
-    document.querySelectorAll(".card").forEach(card => {
-      const titulo = card.querySelector("h3").textContent.toLowerCase();
-      card.style.display = titulo.includes(termo) ? "block" : "none";
+    document.querySelectorAll('.card').forEach(card => {
+      const titulo = card.dataset.title.toLowerCase();
+      card.style.display = titulo.includes(termo) ? 'flex' : 'none';
     });
   });
 </script></body>
