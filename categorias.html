@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html><html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -10,71 +9,70 @@
       background-color: #0d0d0d;
       color: #fff;
       font-family: Arial, sans-serif;
-    }
+    }.categorias-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 30px;
+  background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
+}
 
-    .categorias-container {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 30px;
-      background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
-    }
+.categorias-container h2 {
+  text-align: center;
+  color: #007bff;
+  font-size: 28px;
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
 
-    .categorias-container h2 {
-      text-align: center;
-      color: #007bff;
-      font-size: 28px;
-      margin-bottom: 25px;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-    }
+.categoria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+}
 
-    .categoria-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 20px;
-    }
+.categoria-card {
+  background-color: rgba(13, 13, 13, 0.95);
+  border: 1px solid #1f1f1f;
+  border-left: 5px solid #007bff;
+  border-radius: 10px;
+  padding: 20px;
+  color: #fff;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+  display: block;
+}
 
-    .categoria-card {
-      background-color: rgba(13, 13, 13, 0.95);
-      border: 1px solid #1f1f1f;
-      border-left: 5px solid #007bff;
-      border-radius: 10px;
-      padding: 20px;
-      color: #fff;
-      transition: transform 0.3s, box-shadow 0.3s;
-      text-decoration: none;
-      display: block;
-    }
+.categoria-card:hover,
+.categoria-card:focus {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.4);
+  outline: none;
+}
 
-    .categoria-card:hover,
-    .categoria-card:focus {
-      transform: translateY(-5px);
-      box-shadow: 0 0 20px rgba(0, 123, 255, 0.4);
-      outline: none;
-    }
+.categoria-card h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: #007bff;
+}
 
-    .categoria-card h3 {
-      margin: 0 0 10px;
-      font-size: 20px;
-      color: #007bff;
-    }
+.categoria-card p {
+  font-size: 14px;
+  color: #ccc;
+}
 
-    .categoria-card p {
-      font-size: 14px;
-      color: #ccc;
-    }
+.sidebar {
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  position: fixed;
+  left: 0;
+}
 
-    .sidebar {
-      transform: translateX(-100%);
-      transition: transform 0.3s ease-in-out;
-      position: fixed;
-      left: 0;
-    }
+.sidebar.active {
+  transform: translateX(0);
+}
 
-    .sidebar.active {
-      transform: translateX(0);
-    }
   </style>
 </head>
 <body>
@@ -88,11 +86,9 @@
       <a href="sugestao.html">Sugerir</a>
     </nav>
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Pesquisar categorias..." aria-label="Pesquisar categorias" />
+      <input type="text" id="searchInput" placeholder="Pesquisar filmes..." aria-label="Pesquisar filmes" />
     </div>
-  </header>
-
-  <aside id="sidebar" class="sidebar" role="navigation">
+  </header>  <aside id="sidebar" class="sidebar" role="navigation">
     <button id="closeSidebar" class="close-button" aria-label="Fechar menu lateral">✖</button>
     <ul>
       <li><a href="index.html">Início</a></li>
@@ -106,55 +102,49 @@
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="login.html">Entrar</a></li>
     </ul>
-  </aside>
-
-  <main>
+  </aside>  <main>
     <div class="categorias-container">
       <h2>🎬 Navegue por Categorias</h2>
-      <div class="categoria-grid" id="categoriaGrid">
-        <a href="acao.html" class="categoria-card">
+      <div class="categoria-grid">
+        <a href="acao.html" class="categoria-card" tabindex="0">
           <h3>🔥 Ação</h3>
           <p>Filmes e séries eletrizantes com muita adrenalina e aventura.</p>
         </a>
-        <a href="comedia.html" class="categoria-card">
+        <a href="comedia.html" class="categoria-card" tabindex="0">
           <h3>😂 Comédia</h3>
           <p>Ria sem parar com os melhores títulos de humor e diversão.</p>
         </a>
-        <a href="drama.html" class="categoria-card">
+        <a href="drama.html" class="categoria-card" tabindex="0">
           <h3>🎭 Drama</h3>
           <p>Histórias profundas, emocionantes e envolventes.</p>
         </a>
-        <a href="ficcao.html" class="categoria-card">
+        <a href="ficcao.html" class="categoria-card" tabindex="0">
           <h3>🚀 Ficção Científica</h3>
           <p>Viaje para o futuro e explore mundos além da imaginação.</p>
         </a>
-        <a href="terror.html" class="categoria-card">
+        <a href="terror.html" class="categoria-card" tabindex="0">
           <h3>👻 Terror</h3>
           <p>Prepare-se para sustos, tensão e muito suspense.</p>
         </a>
-        <a href="romance.html" class="categoria-card">
+        <a href="romance.html" class="categoria-card" tabindex="0">
           <h3>❤️ Romance</h3>
           <p>Histórias apaixonantes que tocam o coração.</p>
         </a>
-        <a href="documentarios.html" class="categoria-card">
+        <a href="documentarios.html" class="categoria-card" tabindex="0">
           <h3>🎥 Documentários</h3>
           <p>Conteúdos informativos e reflexivos sobre o mundo real.</p>
         </a>
-        <a href="animacao.html" class="categoria-card">
+        <a href="animacao.html" class="categoria-card" tabindex="0">
           <h3>🎨 Animação</h3>
           <p>Entretenimento divertido para todas as idades.</p>
         </a>
       </div>
     </div>
-  </main>
-
-  <footer>
+  </main>  <footer>
     <p>&copy; 2025 - Todos os direitos reservados</p>
     <a href="privacidade.html">Política de Privacidade</a> |
     <a href="termos.html">Termos de Uso</a>
-  </footer>
-
-  <script>
+  </footer>  <script>
     document.addEventListener("DOMContentLoaded", () => {
       const menuToggle = document.getElementById("menuToggle");
       const sidebar = document.getElementById("sidebar");
@@ -171,18 +161,20 @@
       }
 
       const searchInput = document.getElementById("searchInput");
-      const cards = document.querySelectorAll(".categoria-card");
-
       if (searchInput) {
-        searchInput.addEventListener("keyup", () => {
+        searchInput.addEventListener("keyup", function () {
           const searchTerm = searchInput.value.toLowerCase();
+          const cards = document.querySelectorAll(".categoria-card");
+
           cards.forEach((card) => {
-            const text = card.innerText.toLowerCase();
-            card.style.display = text.includes(searchTerm) ? "block" : "none";
+            const title = card.querySelector("h3").textContent.toLowerCase();
+            const description = card.querySelector("p").textContent.toLowerCase();
+            card.style.display = title.includes(searchTerm) || description.includes(searchTerm)
+              ? "block"
+              : "none";
           });
         });
       }
     });
-  </script>
-</body>
+  </script></body>
 </html>
