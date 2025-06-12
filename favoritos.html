@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Minha Lista</title>
+  <title>Minha Lista de Favoritos</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     body {
@@ -84,11 +84,13 @@
     .card img {
       max-width: 100%;
       border-radius: 12px;
+      margin-bottom: 10px;
     }
 
     .btn {
       display: inline-block;
       margin-top: 10px;
+      margin-right: 10px;
       padding: 10px 16px;
       background-color: #00adee;
       border: none;
@@ -153,7 +155,7 @@
   </footer>
 
   <script>
-    // Menu lateral
+    // Lógica do menu lateral
     const menuToggle = document.getElementById("menuToggle");
     const sidebar = document.getElementById("sidebar");
     const closeSidebar = document.getElementById("closeSidebar");
@@ -174,12 +176,12 @@
       container.innerHTML = "<p style='text-align:center;'>Nenhum favorito ainda.</p>";
     } else {
       favoritos.forEach((item, index) => {
+        const titulo = item.title || "Sem título";
+        const imagem = item.img || "";
+        const link = item.link || "#";
+
         const card = document.createElement("section");
         card.className = "card";
-
-        const titulo = item.title;
-        const imagem = item.img;
-        const link = item.link;
 
         card.innerHTML = `
           <h2>${titulo}</h2>
@@ -188,6 +190,7 @@
           <a href="${link}" class="btn" target="_blank">🎬 Assistir</a>
           <button class="btn" onclick="removerFavorito(${index})">🗑 Remover</button>
         `;
+
         container.appendChild(card);
       });
     }
