@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <title>Filmes - Filmes & Séries</title>
@@ -49,27 +50,55 @@
     }
     .container {
       padding: 20px 30px;
-      max-width: 1000px;
+      max-width: 1200px;
       margin: auto;
     }
     .container h2 {
       margin-bottom: 20px;
       color: #00adee;
     }
+    .search-box {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .search-box input {
+      padding: 12px 20px;
+      width: 100%;
+      max-width: 500px;
+      border-radius: 30px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      background-color: #1f1f1f;
+      color: white;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
     .card {
       background: #1a1a1a;
       padding: 15px;
-      margin-bottom: 20px;
       border-radius: 12px;
-      border-left: 5px solid #00adee;
+      text-align: center;
+      box-shadow: 0 0 10px #00000066;
+    }
+    .card img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      border-radius: 8px;
     }
     .card h3 {
-      margin-top: 0;
+      margin: 12px 0 8px;
       color: #00adee;
     }
     .btn-container {
       margin-top: 10px;
       display: flex;
+      justify-content: center;
       gap: 10px;
     }
     .btn {
@@ -80,6 +109,7 @@
       color: white;
       cursor: pointer;
       transition: 0.3s;
+      text-decoration: none;
     }
     .btn:hover {
       background-color: #008bb8;
@@ -104,28 +134,58 @@
     <a href="sugestao.html">Sugerir</a>
   </nav>
 </header>
+
 <div class="container">
-  <h2>🎥 Filmes Disponíveis</h2>  <div class="card">
-    <h3>A Paixão de Joana d'Arc (1928)</h3>
-    <div class="btn-container">
-      <a href="joana.html" class="btn">Assistir</a>
-      <button class="btn">Favoritar</button>
+  <h2>🎥 Filmes Disponíveis</h2>
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="🔍 Pesquisar filme...">
+  </div>
+
+  <div class="card-grid" id="filmesGrid">
+    <div class="card" data-title="A Paixão de Joana d'Arc">
+      <img src="https://img.youtube.com/vi/6Y9tN_0J-h4/hqdefault.jpg" alt="Joana d'Arc">
+      <h3>A Paixão de Joana d'Arc (1928)</h3>
+      <div class="btn-container">
+        <a href="joana.html" class="btn">Assistir</a>
+        <button class="btn">Favoritar</button>
+      </div>
     </div>
-  </div>  <div class="card">
-    <h3>Nosferatu (1922)</h3>
-    <div class="btn-container">
-      <a href="nosferatu.html" class="btn">Assistir</a>
-      <button class="btn">Favoritar</button>
+
+    <div class="card" data-title="Nosferatu">
+      <img src="https://img.youtube.com/vi/vvgcvUKbSDA/hqdefault.jpg" alt="Nosferatu">
+      <h3>Nosferatu (1922)</h3>
+      <div class="btn-container">
+        <a href="nosferatu.html" class="btn">Assistir</a>
+        <button class="btn">Favoritar</button>
+      </div>
     </div>
-  </div>  <div class="card">
-    <h3>O Imigrante (1917)</h3>
-    <div class="btn-container">
-      <a href="imigrante.html" class="btn">Assistir</a>
-      <button class="btn">Favoritar</button>
+
+    <div class="card" data-title="O Imigrante">
+      <img src="https://img.youtube.com/vi/kIOhzCXRM2w/hqdefault.jpg" alt="O Imigrante">
+      <h3>O Imigrante (1917)</h3>
+      <div class="btn-container">
+        <a href="imigrante.html" class="btn">Assistir</a>
+        <button class="btn">Favoritar</button>
+      </div>
     </div>
   </div>
-</div><footer>
+</div>
+
+<footer>
   <p>&copy; 2025 - Todos os direitos reservados</p>
 </footer>
+
+<script>
+  const searchInput = document.getElementById("searchInput");
+  const cards = document.querySelectorAll(".card");
+
+  searchInput.addEventListener("input", function () {
+    const searchTerm = this.value.toLowerCase();
+    cards.forEach(card => {
+      const title = card.getAttribute("data-title").toLowerCase();
+      card.style.display = title.includes(searchTerm) ? "block" : "none";
+    });
+  });
+</script>
 </body>
 </html>
