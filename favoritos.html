@@ -8,39 +8,46 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: Arial, sans-serif;
       background-color: #111;
       color: white;
     }
 
     header {
       background-color: #000;
-      padding: 15px 30px;
+      padding: 15px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    }
+
+    header h1 {
+      font-size: 1.5em;
     }
 
     .top-menu a {
       color: white;
-      margin-right: 15px;
+      margin-left: 10px;
       text-decoration: none;
+    }
+
+    .menu-button, .close-button {
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
     }
 
     .sidebar {
       position: fixed;
-      left: -250px;
       top: 0;
+      left: -250px;
       width: 250px;
       height: 100%;
       background-color: #222;
-      transition: 0.3s;
       padding: 20px;
+      transition: left 0.3s ease;
       z-index: 999;
     }
 
@@ -50,20 +57,12 @@
     }
 
     .sidebar ul li {
-      margin-bottom: 10px;
+      margin: 10px 0;
     }
 
     .sidebar ul li a {
-      color: #fff;
-      text-decoration: none;
-    }
-
-    .close-button, .menu-button {
-      background: none;
-      border: none;
       color: white;
-      font-size: 24px;
-      cursor: pointer;
+      text-decoration: none;
     }
 
     main {
@@ -75,23 +74,26 @@
     .card {
       background-color: #1a1a1a;
       padding: 20px;
-      border-radius: 12px;
+      border-radius: 10px;
       margin-bottom: 20px;
-      box-shadow: 0 0 10px #00000066;
+      box-shadow: 0 0 8px rgba(0,0,0,0.5);
       text-align: center;
     }
 
     .card img {
       max-width: 100%;
-      border-radius: 12px;
+      border-radius: 10px;
       margin-bottom: 10px;
+    }
+
+    .card h2 {
+      margin: 10px 0;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 10px;
-      margin-right: 10px;
-      padding: 10px 16px;
+      margin: 8px 5px;
+      padding: 10px 15px;
       background-color: #00adee;
       border: none;
       border-radius: 25px;
@@ -105,22 +107,23 @@
     }
 
     footer {
-      text-align: center;
-      padding: 20px;
       background-color: #000;
       color: #aaa;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
     }
 
     footer a {
       color: #00adee;
-      text-decoration: none;
       margin: 0 10px;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Minha Lista de Favoritos</h1>
+    <h1>Minha Lista</h1>
     <button id="menuToggle" class="menu-button">☰</button>
     <nav class="top-menu">
       <a href="index.html">Início</a>
@@ -155,7 +158,7 @@
   </footer>
 
   <script>
-    // Lógica do menu lateral
+    // Menu lateral
     const menuToggle = document.getElementById("menuToggle");
     const sidebar = document.getElementById("sidebar");
     const closeSidebar = document.getElementById("closeSidebar");
@@ -168,33 +171,31 @@
       sidebar.style.left = "-250px";
     });
 
-    // Exibir favoritos
+    // Mostrar lista de favoritos
     const container = document.getElementById("listaFavoritos");
-    let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+    const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 
     if (favoritos.length === 0) {
       container.innerHTML = "<p style='text-align:center;'>Nenhum favorito ainda.</p>";
     } else {
       favoritos.forEach((item, index) => {
         const titulo = item.title || "Sem título";
-        const imagem = item.img || "";
+        const imagem = item.img || "https://via.placeholder.com/300x400?text=Sem+Imagem";
         const link = item.link || "#";
 
-        const card = document.createElement("section");
+        const card = document.createElement("div");
         card.className = "card";
-
         card.innerHTML = `
-          <h2>${titulo}</h2>
           <img src="${imagem}" alt="${titulo}">
-          <br>
+          <h2>${titulo}</h2>
           <a href="${link}" class="btn" target="_blank">🎬 Assistir</a>
           <button class="btn" onclick="removerFavorito(${index})">🗑 Remover</button>
         `;
-
         container.appendChild(card);
       });
     }
 
+    // Remover favorito
     function removerFavorito(index) {
       favoritos.splice(index, 1);
       localStorage.setItem("favoritos", JSON.stringify(favoritos));
